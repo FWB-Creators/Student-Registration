@@ -4,7 +4,7 @@ import { FC } from 'react'
 
 const test = () => {
   return (
-    <div className="h-screen flex flex-col justify-center items-center backdrop-blur ">
+    <div className="h-screen flex flex-col justify-center items-center backdrop-blur">
       <div className="spin-slow">
         <Image
           src="/static/sieng.png"

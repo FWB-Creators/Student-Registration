@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export default function Form() {
     return (
-        <div className='bg-white px-20 py-20 rounded-3xl border-2 border-gray-100'>
+        <div className='bg-white px-20 py-20 rounded-3xl border-2 border-gray-100 drop-shadow-md'>
             <h1 className='text-5xl font-semibold'>Student Register</h1>
             <p className='font-medium text-2xl text-gray-500 mt-4'>Login</p>
             <div className='mt-8'>
@@ -20,7 +20,7 @@ export default function Form() {
                 </div>
                 <div className='mt-8 flex justify-between item-center'>
                     <div>
-                        <input type='checkbox' id='remember'></input>
+                        <input className="accent-orange-500" type='checkbox' id='remember'></input>
                         <label className='ml-2 font-medium text-base'>Remember for 30 days</label>
                     </div>
                     <button className='font-medium text-base text-orange-500'>Forgot password</button>
