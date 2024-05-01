@@ -20,7 +20,7 @@ app.use(
 )
 
 app.get('/api/home', (req, res, next) => {
-  connection.query('SELECT * FROM users', (err, results) => {
+  connection.query('Select * from users', (err, results) => {
     if (err) {
       console.log('An error occurred:', err)
       return res.json({ message: 'An error occurred' })
