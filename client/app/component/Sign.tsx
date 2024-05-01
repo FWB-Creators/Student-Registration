@@ -23,7 +23,7 @@ export default function Sign() {
                     </div>
                     <div className='flex-1 mx-5'>
                         <label className='text-lg font-medium'>Email</label>
-                        <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='username@gmail.com' />
+                        <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='username@gmail.com' type='email'/>
                     </div>
                 </div>
                 <div className="flex justify-between">
@@ -33,13 +33,18 @@ export default function Sign() {
                     </div>
                     <div className='flex-1 mx-5'>
                         <label className='text-lg font-medium'>Date Of Birth</label>
-                        <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='Enter your date of birth' />
+                        <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' type='date' />
                     </div>
                 </div>
                 <div className="flex justify-between">
                     <div className='flex-1 mx-5'>
                         <label className='text-lg font-medium'>Sex</label>
-                        <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='Enter your sex' />
+                        <select className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'>
+                            <option value=''>Select your gender</option>
+                            <option value='male'>Male</option>
+                            <option value='female'>Female</option>
+                            <option value='other'>Other</option>
+                        </select>
                     </div>
                     <div className='flex-1 mx-5'>
                         <label className='text-lg font-medium'>Year</label>
@@ -57,6 +62,10 @@ export default function Sign() {
                     </div>
                 </div>
                 <button className='mt-8 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-xl bg-orange-500 text-white text-lg font-bold'>Register</button>
+            </div>
+            <div className='mt-8 flex justify-center items-center'>
+                <p className='font-medium text-base'>Have an account?</p>
+                <button className='text-orange-500 text-base font-medium ml-2'>Login</button>
             </div>
         </div>
     )
