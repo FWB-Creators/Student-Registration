@@ -1,15 +1,15 @@
 import * as React from 'react';
 
-export default function Form() {
+export default function Login() {
     return (
         <div className='bg-white px-20 py-20 rounded-3xl border-2 border-gray-100 drop-shadow-md'>
-            <h1 className='text-5xl font-semibold'>Student Register</h1>
-            <p className='font-medium text-2xl text-gray-500 mt-4'>Login</p>
+            <h1 className='text-5xl font-semibold'>Student Login</h1>
+            <p className='font-medium text-xl text-gray-500 mt-4'>Welcome back!</p>
             <div className='mt-8'>
                 <div>
-                    <label className='text-lg font-medium'>Email</label>
+                    <label className='text-lg font-medium'>Username</label>
                     <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-tranparent'
-                        placeholder='Enter your email'>
+                        placeholder='Enter your username'>
                     </input>
                 </div>
                 <div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from '../component/Form'
+import Login from '../component/Login'
 import Image from 'next/image'
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
                 </div>
             </div>
             <div className="w-full flex items-center justify-center">
-                <Form />
+                <Login />
             </div>
         </div>
     )
