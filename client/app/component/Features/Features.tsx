@@ -8,7 +8,7 @@ import Icon4 from "@/public/static/human.png"
 
 const Features = () => {
     return (
-        <div className='py-[5rem] pb-[3-rem]'>
+        <div className='py-[8rem] pb-28'>
             <SectionHeading
                 headingMini = "Ideal solution for you"
                 headingPrimary = "Explore Ultimate features"

@@ -9,8 +9,8 @@ interface Props {
 
 const Nav = ({openNav}:Props) => {
     return (
-        <div className='h-[12vh] bg-white shadow-md'>
-            <div className='w-[85%] flex items-center justify-between mx-auto h-[12vh]'>
+        <div className='h-[8vh] bg-white shadow-md'>
+            <div className='w-[85%] flex items-center justify-between mx-auto h-[8vh]'>
                 <h1 className='text-[16px] md:text-[25px] font-bold text-slate-800'>
                     <span className='text-[27px] md:text-[40px] text-orange-500'>D</span>
                     atabase

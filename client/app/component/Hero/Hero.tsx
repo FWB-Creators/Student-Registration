@@ -19,7 +19,9 @@ const Hero = () => {
                     </div>
                 </div>
                 <div className='col-span-3 hidden sm:block'>
-                    <Image src={FoxImg} alt="Hero" width={600} height={600}/>
+                    <div className="ml-20 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.05] ease-in-out">
+                        <Image src={FoxImg} alt="Hero" width={600} height={600}/>
+                    </div>
                 </div>
             </div>
         </div>
