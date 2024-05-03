@@ -1,37 +1,53 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, FormEvent } from 'react'
+import Cookies from 'js-cookie'
 
 const Test = () => {
-  const [data, setData] = useState(null)
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch('http://localhost:3001/api/home')
-        const data = await res.json()
-        setData(data.users)
-        console.log(data)
-      } catch (error) {
-        console.error('An error occurred while fetching data:', error)
-      }
+  const [resMessage, setResMessage] = useState('')
+  const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault()
+    const target = event.target as typeof event.target & {
+      username: { value: string }
+      password: { value: string }
     }
+    console.log(target)
+    const username = target.username.value
+    const password = target.password.value
+    console.log(username, password)
+    const data = { username, password }
 
-    fetchData()
-  }, [])
+    fetch('http://localhost:3001/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        if (data.token) {
+          console.log('Login successful')
+          setResMessage('Login successful')
+          //   localStorage.setItem('token', data.token)
+          //   document.cookie = `token=${data.token}; path=/`
+          Cookies.set('token', data.token, { path: '/' })
+        } else {
+          setResMessage('Login failed')
+        }
+      })
+  }
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center backdrop-blur ">
-      {data ? (
-        data.map((user) => (
-          <div
-            key={user.id}
-            className="flex flex-row justify-center mt-2 pulse"
-          >
-            {user.username}
-          </div>
-        ))
-      ) : (
-        <div>Loading ...</div>
-      )}
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username">Username</label>
+        <input type="text" id="username" name="username" />
+        <label htmlFor="password">Password</label>
+        <input type="password" id="password" name="password" />
+        <button type="submit">Submit</button>
+      </form>
+      {resMessage}
     </div>
   )
 }
