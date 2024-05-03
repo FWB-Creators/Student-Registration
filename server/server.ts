@@ -50,6 +50,7 @@ app.post('/login', (req, res, next) => {
         return res.json({ token })
       } else {
         console.log('Query result:', results)
+        return res.json({ message: 'Invalid username or password' })
         // return res.json({ message: 'Invalid username or password' })
       }
 
@@ -62,6 +63,7 @@ app.post('/verify', (req, res, next) => {
   const { token } = req.body
   //extract val of jwt
   const { name, value } = token
+  console.log('Verify BE:', token)
   // console.log('Token xx: ', token)
   // console.log('Token BE: ', value)
   jwt.verify(
