@@ -18,7 +18,7 @@ const Nav = ({openNav}:Props) => {
                     <span className='text-[27px] md:text-[40px] text-red-600'> A</span>
                     ree
                 </h1>
-                <ul className="hidden lg:flex items-center space-x-10">
+                <ul className="font-semibold hidden lg:flex items-center space-x-10">
                     <li className="text-[17px] cursor-pointer text-red-500">
                         <Link href="/">Home</Link>
                     </li>
