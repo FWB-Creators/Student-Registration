@@ -11,7 +11,7 @@ const Features = () => {
         <div className='py-[5rem] pb-[3-rem]'>
             <SectionHeading
                 headingMini = "Ideal solution for you"
-                headingPrimary = "Explor Ultimate features"
+                headingPrimary = "Explore Ultimate features"
             />
             <div className='pt-[5rem] w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center gap-[1.4rem]'>
                 <div>

@@ -18,19 +18,19 @@ const MobileNav = ({nav, closeNav}: Props) => {
                 className='w-[2rem] h-[2rem] absolute top-[2rem] text-white z-[202] right-[2rem]'
             />
             <ul className="font-semibold relative z-[201] space-y-10 flex flex-col justify-center h-[100%] items-center">
-                <li className="text-[25px] cursor-pointer text-red-600">
+                <li className="text-[25px] cursor-pointer text-orange-600">
                     <Link href="/">Home</Link>
                 </li>
-                <li className="text-[25px] cursor-pointer text-white hover:text-red-600 transition-all duration-200">
+                <li className="text-[25px] cursor-pointer text-white hover:text-orange-600 transition-all duration-200">
                     <Link href="/">Register</Link>
                 </li>
-                <li className="text-[25px] cursor-pointer text-white hover:text-red-600 transition-all duration-200">
+                <li className="text-[25px] cursor-pointer text-white hover:text-orange-600 transition-all duration-200">
                     <Link href="/">Course</Link>
                 </li>
-                <li className="text-[25px] cursor-pointer text-white hover:text-red-600 transition-all duration-200">
+                <li className="text-[25px] cursor-pointer text-white hover:text-orange-600 transition-all duration-200">
                     <Link href="/">Department</Link>
                 </li>
-                <li className="text-[25px] cursor-pointer text-white hover:text-red-600 transition-all duration-200">
+                <li className="text-[25px] cursor-pointer text-white hover:text-orange-600 transition-all duration-200">
                     <Link href="/">Instructor</Link>
                 </li>
             </ul>

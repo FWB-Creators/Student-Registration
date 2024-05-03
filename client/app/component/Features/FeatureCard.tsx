@@ -16,11 +16,11 @@ const FeatureCard = ({image, title}: Props) => {
                 height={110}
                 className='mx-auto'
             />
-            <h1 className='text-[20px] mt-[1.4rem] font-[500] text=[#02073e]'>{title}</h1>
+            <h1 className='text-2xl mt-[1.4rem] font-[500] text-black'>{title}</h1>
             <p className='mt-[1rem] text-black opacity-90 text-[15px]'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste mollitia laborum quam nisi velit ipsa nemo accusamus, deleniti temporibus aspernatur sed voluptatum. Fugit debitis distinctio consectetur officia excepturi deleniti.
             </p>
-            <p className='mt-[1.4rem] text-red-600 font-[500] cursor-pointer hover:text-red-800'>Learn More</p>
+            <p className='text-lg mt-[1.5rem] text-orange-600 font-[500] cursor-pointer hover:text-orange-700'>Learn More</p>
         </div>
     )
 }
