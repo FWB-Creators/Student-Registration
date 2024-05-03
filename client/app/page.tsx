@@ -1,5 +1,8 @@
+'use client'
 import Image from 'next/image'
+import { signIn, signOut } from 'next-auth/react'
 import Link from 'next/link'
+
 const Home = () => {
   return (
     <div>
