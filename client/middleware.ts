@@ -1,37 +1,55 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 // This is a simplified example of how you might adjust the middleware
+
 export async function middleware(req: NextRequest) {
   const token = req.cookies.get('token')
-  // const token = Cookies.get('token')
-  // const token = (await req.cookies['token']) as string
-  console.log('Token (Middleware):', token)
 
-  // if (!token) {
-  //   return new Response('Unauthorized', { status: 401 })
-  // }
-
-  try {
-    const verifyResult = await fetch('http://localhost:3001/verify', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ token }),
-    })
-
-    const verifyData = await verifyResult.json()
-    console.log('Verify data:', verifyData)
-    // if (!verifyResult.ok) {
-    //   // Handle verification failure
-    //   return new Response('Unauthorized', { status: 401 })
-    // }
-
-    // Proceed with the request if the token is verified
+  if (!token) {
+    console.log('No token found')
     return NextResponse.next()
-  } catch (error) {
-    console.error('Verification error:')
-    return NextResponse.next()
-    // return new Response('Internal Server Error', { status: 500 })
   }
+
+  if (token) {
+    console.log('Token found:', token)
+    try {
+      const verifyResult = await fetch('http://localhost:3001/verify', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token }),
+      })
+
+      const verifyData = await verifyResult.json()
+
+      if (verifyData.decoded && req.nextUrl.pathname === '/login') {
+        return NextResponse.redirect(new URL('/', req.url))
+      }
+
+      if (verifyData?.message === 'Invalid token') {
+        console.log('Verify JWT:', verifyData.message)
+        //I want to make cookie expire
+        // console.log('Verify JWT:', verifyData.message)
+        // Create a response object with a 401 Unauthorized status
+        const response = new Response('Unauthorized', {
+          status: 401,
+          headers: {
+            'Set-Cookie':
+              'token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly',
+          },
+        })
+        return response
+      }
+
+      return NextResponse.next()
+    } catch (error) {
+      console.error('Verification error:', error)
+      return NextResponse.next()
+    }
+  }
+}
+
+export const config = {
+  matcher: ['/login'],
 }
