@@ -12,7 +12,7 @@ export default function Login() {
                         placeholder='Enter your username'>
                     </input>
                 </div>
-                <div>
+                <div className='mt-3'>
                     <label className='text-lg font-medium'>Password</label>
                     <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-tranparent'
                         placeholder='Enter your password' type='password'>

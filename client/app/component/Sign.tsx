@@ -5,20 +5,20 @@ export default function Sign() {
         <div className='bg-white px-20 py-20 rounded-3xl border-2 border-gray-100 drop-shadow-md'>
             <h1 className='text-5xl font-semibold'>Student Register</h1>
             <p className='font-medium text-xl text-gray-500 mt-4'>Welcome!</p>
-            <div className='mt-8 flex flex-col gap-y-4'>
+            <div className='mt-8 flex flex-col gap-y-3'>
                 <div className="flex justify-between">
                     <div className='flex-1 mx-5'>
-                        <label className='text-lg font-medium'>Name</label>
-                        <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='Enter your name' />
+                        <label className='text-lg font-medium'>Firstname</label>
+                        <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='Enter your firstname' />
                     </div>
                     <div className='flex-1 mx-5'>
-                        <label className='text-lg font-medium'>Surname</label>
-                        <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='Enter your surname' />
+                        <label className='text-lg font-medium'>Lastname</label>
+                        <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='Enter your lastname' />
                     </div>
                 </div>
                 <div className="flex justify-between">
                     <div className='flex-1 mx-5'>
-                        <label className='text-lg font-medium'>Tel.</label>
+                        <label className='text-lg font-medium'>Contact Number</label>
                         <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='000-000-0000' />
                     </div>
                     <div className='flex-1 mx-5'>
@@ -38,7 +38,7 @@ export default function Sign() {
                 </div>
                 <div className="flex justify-between">
                     <div className='flex-1 mx-5'>
-                        <label className='text-lg font-medium'>Sex</label>
+                        <label className='text-lg font-medium'>Gender</label>
                         <select className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'>
                             <option value=''>Select your gender</option>
                             <option value='male'>Male</option>
@@ -48,7 +48,15 @@ export default function Sign() {
                     </div>
                     <div className='flex-1 mx-5'>
                         <label className='text-lg font-medium'>Year</label>
-                        <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='Enter your year' />
+                        <select className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'>
+                            <option value=''>Select your year</option>
+                            <option value='bachelor1'>Bachelor Year 1</option>
+                            <option value='bachelor2'>Bachelor Year 2</option>
+                            <option value='bachelor3'>Bachelor Year 3</option>
+                            <option value='bachelor4'>Bachelor Year 4</option>
+                            <option value='master'>Master's Degree</option>
+                            <option value='doctoral'>Doctoral Degree</option>
+                        </select>
                     </div>
                 </div>
                 <div className="flex justify-between">
