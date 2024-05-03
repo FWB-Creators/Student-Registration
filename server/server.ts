@@ -1,8 +1,16 @@
-import express from 'express'
+import express, { Request, Response, NextFunction } from 'express'
 import cors from 'cors'
-import mysql from 'mysql2'
+import mysql, { RowDataPacket } from 'mysql2'
 import bodyParser from 'body-parser'
-import jwt from 'jwt-simple'
+import dotenv from 'dotenv'
+
+import { generateAccessToken } from './lib/generateToken'
+// import { verifyToken } from './lib/verifyToken'
+
+import authMiddleware from './middleware/auth'
+import jwt from 'jsonwebtoken'
+dotenv.config()
+
 const app = express()
 const port = 3001
 
@@ -24,7 +32,7 @@ app.use(
 
 app.post('/login', (req, res, next) => {
   //login middleware
-  const { username, password } = req.body
+  const { username, password, role } = req.body
   connection.query(
     `SELECT * FROM users WHERE username = '${username}' AND password = '${password}';`,
     (err, results) => {
@@ -32,19 +40,40 @@ app.post('/login', (req, res, next) => {
         console.log('An error occurred:', err)
         return res.json({ message: 'An error occurred' })
       }
-      if (Array.isArray(results)) {
-        console.log('Query result:', results.length)
+      if (Array.isArray(results) && results[0]) {
+        const user = results[0] as RowDataPacket
+        console.log('User test:', user)
+        const userInfo = { username: user.username, role: user.role }
+        const token = generateAccessToken(userInfo)
+        console.log('Query result:', results)
+        console.log('Token:', token)
+        return res.json({ token })
       } else {
         console.log('Query result:', results)
+        // return res.json({ message: 'Invalid username or password' })
       }
-      // const payload = {
-      //   sub: results[0],
-      //   iat: Date.now(),
-      // }
-      // const SecretKey = 'billysudlhor'
-      // const token = jwt.encode(payload, SecretKey)
-      // return res.json({ token })
-      return res.json({ users: results })
+
+      // return res.json({ users: results })
+    }
+  )
+})
+
+app.post('/verify', (req, res, next) => {
+  const { token } = req.body
+  //extract val of jwt
+  const { name, value } = token
+  // console.log('Token xx: ', token)
+  // console.log('Token BE: ', value)
+  jwt.verify(
+    value,
+    process.env.SECRET_TOKEN as string,
+    (err: any, decoded: any) => {
+      if (err) {
+        // console.log('Error:', err)
+        return res.json({ message: 'Invalid token' })
+      }
+      console.log('Decoded:', decoded)
+      return res.json({ decoded })
     }
   )
 })

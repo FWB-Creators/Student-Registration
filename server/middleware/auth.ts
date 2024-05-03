@@ -1,21 +1,10 @@
-import auth from 'basic-auth'
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
+dotenv.config()
 
-const myAuth = (req, res, next) => {
-  console.log('auth middleware')
-  const user = auth(req)
-  const username: string = 'admin'
-  const password: string = 'password'
-
-  if (
-    user.name.toLowerCase() === username.toLowerCase() &&
-    user.pass === password
-  ) {
-    console.log('Basic authentication successful')
-    next()
-  } else {
-    res.status(401).send('Unauthorized')
-    res.end('Access denied')
-  }
+const authMiddleware = async (req, res) => {
+  const token: string = req.cookies['token'] as string
+  console.log('token:', token)
 }
 
-export default myAuth
+export default authMiddleware
