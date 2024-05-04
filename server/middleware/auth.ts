@@ -10,7 +10,7 @@ const authToken = async (req: any, res: any, next: any) => {
   const { name, value } = token
 
   jwt.verify(
-    value,
+    token as string,
     process.env.SECRET_TOKEN as string,
     (err: any, decoded: any) => {
       if (err) {
@@ -19,7 +19,7 @@ const authToken = async (req: any, res: any, next: any) => {
       }
       console.log('Decoded:', decoded)
       // next()
-      return res.json({ decoded })
+      return res.json({ message: decoded })
     }
   )
 }

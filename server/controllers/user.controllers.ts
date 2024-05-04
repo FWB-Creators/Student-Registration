@@ -1,16 +1,46 @@
 import { Router } from 'express'
 import dbConnection from '../database/database'
 import { getUser } from '../services/user.services'
+import auth from '../middleware/auth'
+
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
+dotenv.config()
+
+interface User {
+  userid: number
+  username: string
+  password: string
+  role: string
+}
 
 const router = Router()
 
-router.get('/', async (req, res) => {
-  console.log('User controller')
+router.post('/', async (req, res) => {
+  const { token } = req.body
+  console.log('Token:', token)
+  const userId = await jwt.verify(
+    token as string,
+    process.env.SECRET_TOKEN as string,
+    (err: any, decoded: any) => {
+      if (err) {
+        return null
+        // return { message: 'Invalid token' }
+      }
+      console.log('Decoded:', decoded)
+      return decoded.user.userid as number
+      //   return { message: decoded }
+    }
+  )
 
-  const users = await getUser('admin', 'password')
-  console.log('Users:', users)
-  //   res.json({ message: 'User controller test' })
-  res.json(users)
+  console.log('User ID:', userId)
+  if (typeof userId === 'number') {
+    const users = (await getUser(userId)) as any[]
+    console.log('Users:', users)
+    const userInfo = users[0] as User
+    res.json(userInfo)
+    return res.json({ userInfo })
+  }
 })
 
 export default router

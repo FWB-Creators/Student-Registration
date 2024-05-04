@@ -33,7 +33,9 @@ app.use(
   })
 )
 
-app.use('/controller', authToken, userRoutes)
+// app.use('/controller', authToken, userRoutes)
+
+app.use('/user', userRoutes)
 
 app.get('/', (req, res, next) => {
   res.send('Hello World, test middleware')
@@ -52,7 +54,11 @@ app.post('/login', (req, res, next) => {
       if (Array.isArray(results) && results[0]) {
         const user = results[0] as RowDataPacket
         console.log('User test:', user)
-        const userInfo = { username: user.username, role: user.role }
+        const userInfo = {
+          userid: user.userid,
+          // username: user.username,
+          // role: user.role,
+        }
         const token = generateAccessToken(userInfo)
         console.log('Query result:', results)
         console.log('Token:', token)
