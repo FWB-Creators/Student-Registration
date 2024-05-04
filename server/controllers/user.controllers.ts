@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import dbConnection from '../database/database'
-import { getUser } from '../services/user.services'
-import auth from '../middleware/auth'
+import { getUserInfo } from '../services/user.services'
+// import auth from '../middleware/auth'
 
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
@@ -35,10 +35,9 @@ router.post('/', async (req, res) => {
 
   console.log('User ID:', userId)
   if (typeof userId === 'number') {
-    const users = (await getUser(userId)) as any[]
+    const users = (await getUserInfo(userId)) as User[]
     console.log('Users:', users)
     const userInfo = users[0] as User
-    res.json(userInfo)
     return res.json({ userInfo })
   }
 })

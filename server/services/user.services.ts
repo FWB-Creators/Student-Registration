@@ -1,6 +1,6 @@
 import dbConnection from '../database/database'
 
-const getUser = async (userId: number) => {
+const getUserInfo = async (userId: number) => {
   return new Promise((resolve, reject) => {
     dbConnection.query(
       `SELECT * FROM users WHERE userid = ?`,
@@ -68,4 +68,4 @@ const updateUser = async (username: string, password: string, role: string) => {
   })
 }
 
-export { getUser }
+export { getUserInfo, createUser, updateUser }

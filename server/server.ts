@@ -74,8 +74,8 @@ app.post('/login', (req, res, next) => {
   )
 })
 
-app.post('/verify', authToken, (req, res, next) => {
-  console.log('Verify:', req.body)
+app.post('/verify', authToken, (req: any, res, next) => {
+  console.log('Verify asfas:' + req.user)
   return res.json({ message: 'Verify token' })
 })
 

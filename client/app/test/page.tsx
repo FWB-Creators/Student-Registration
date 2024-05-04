@@ -14,7 +14,7 @@ const testController = async () => {
       body: JSON.stringify({ token }),
     })
     // const data = await res.json()
-    const data = await res
+    const data = await res.json()
     console.log(data)
   } catch (error) {
     console.error('Error:', error)
@@ -83,7 +83,7 @@ const Test = () => {
         <button type="submit">Submit</button>
       </form>
       {resMessage}
-      <div className="mt-20">Test controller</div>
+      <div className="mt-20">Test user</div>
       <button onClick={testController}>Test</button>
       <div className="mt-20">Test verify</div>
       <button onClick={testVerify}>Test</button>
