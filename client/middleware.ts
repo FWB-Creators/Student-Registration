@@ -5,6 +5,7 @@ import { NextRequest, NextResponse } from 'next/server'
 export async function middleware(req: NextRequest) {
   const token = req.cookies.get('token')
 
+  console.log('FE middleware:', token)
   if (!token) {
     console.log('No token found')
     return NextResponse.next()
@@ -23,7 +24,11 @@ export async function middleware(req: NextRequest) {
 
       const verifyData = await verifyResult.json()
 
-      if (verifyData.decoded && req.nextUrl.pathname === '/login') {
+      if (
+        verifyData.decoded &&
+        (req.nextUrl.pathname === '/login' ||
+          req.nextUrl.pathname === 'sign-up')
+      ) {
         return NextResponse.redirect(new URL('/', req.url))
       }
 
@@ -51,5 +56,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/login'],
+  matcher: ['/login', '/sign-up'],
 }
