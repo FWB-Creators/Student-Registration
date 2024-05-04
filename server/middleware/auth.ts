@@ -1,10 +1,27 @@
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
+
 dotenv.config()
 
-const authMiddleware = async (req, res) => {
-  const token: string = req.cookies['token'] as string
-  console.log('token:', token)
+const authToken = async (req: any, res: any, next: any) => {
+  const { token } = req.body
+  //extract val of jwt
+  console.log('Verify Auth Middle:', token)
+  const { name, value } = token
+
+  jwt.verify(
+    value,
+    process.env.SECRET_TOKEN as string,
+    (err: any, decoded: any) => {
+      if (err) {
+        console.log('Error:', err)
+        return res.json({ message: 'Invalid token' })
+      }
+      console.log('Decoded:', decoded)
+      // next()
+      return res.json({ decoded })
+    }
+  )
 }
 
-export default authMiddleware
+export default authToken
