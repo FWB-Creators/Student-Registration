@@ -46,7 +46,7 @@ export default function Login() {
       <p className="font-medium text-xl text-gray-500 mt-4">Welcome back!</p>
       {resMessage}
       <form onSubmit={handleLogin} className="mt-8">
-        <div>
+        <div className='my-2'>
           <label className="text-lg font-medium">Username</label>
           <input
             className="w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-tranparent"
@@ -54,7 +54,7 @@ export default function Login() {
             placeholder="Enter your username"
           ></input>
         </div>
-        <div>
+        <div className='mt-2'>
           <label className="text-lg font-medium">Password</label>
           <input
             className="w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-tranparent"
@@ -67,7 +67,7 @@ export default function Login() {
           type="submit"
           className="mt-8 w-full py-3 rounded-xl bg-orange-500 text-white text-lg font-bold"
         >
-          Sign in
+          Log in
         </button>
         <div className="mt-8 flex justify-between item-center">
           <div>

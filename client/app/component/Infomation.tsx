@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-export default function Sign() {
+export default function Information() {
     return (
         <div className='bg-white px-20 py-20 rounded-3xl border-2 border-gray-100 drop-shadow-md'>
-            <h1 className='text-5xl font-semibold'>Student Register</h1>
+            <h1 className='text-5xl font-semibold'>Student Information</h1>
             <p className='font-medium text-xl text-gray-500 mt-4'>Welcome!</p>
             <div className='mt-8 flex flex-col gap-y-3'>
                 <div className="flex justify-between">
@@ -69,11 +69,7 @@ export default function Sign() {
                         <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='Enter your password' type='password'/>
                     </div>
                 </div>
-                <button className='mt-8 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-xl bg-orange-500 text-white text-lg font-bold'>Register</button>
-            </div>
-            <div className='mt-8 flex justify-center items-center'>
-                <p className='font-medium text-base'>Have an account?</p>
-                <button className='text-orange-500 text-base font-medium ml-2'>Login</button>
+                <button className='mt-8 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-xl bg-orange-500 text-white text-lg font-bold'>Confirm</button>
             </div>
         </div>
     )
