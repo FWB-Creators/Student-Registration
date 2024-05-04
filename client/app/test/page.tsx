@@ -5,8 +5,16 @@ import test from '../loading/page'
 
 const testController = async () => {
   try {
-    const res = await fetch('http://localhost:3001/controller')
-    const data = await res.json()
+    const token = Cookies.get('token')
+    const res = await fetch('http://localhost:3001/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ token }),
+    })
+    // const data = await res.json()
+    const data = await res
     console.log(data)
   } catch (error) {
     console.error('Error:', error)
