@@ -42,7 +42,7 @@ export default function Login() {
 
   return (
     <div className="bg-white px-20 py-20 rounded-3xl border-2 border-gray-100 drop-shadow-md">
-      <h1 className="text-5xl font-semibold">Student Login</h1>
+      <h1 className="text-5xl font-semibold">Student Log in</h1>
       <p className="font-medium text-xl text-gray-500 mt-4">Welcome back!</p>
       {resMessage}
       <form onSubmit={handleLogin} className="mt-8">
@@ -65,7 +65,7 @@ export default function Login() {
         </div>
         <button
           type="submit"
-          className="mt-8 w-full py-3 rounded-xl bg-orange-500 text-white text-lg font-bold"
+          className="mt-8 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-xl bg-orange-500 text-white text-lg font-bold"
         >
           Log in
         </button>

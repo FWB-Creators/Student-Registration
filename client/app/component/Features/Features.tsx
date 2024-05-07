@@ -1,30 +1,49 @@
 import React from 'react'
-import SectionHeading from '../SectionHeading/SectionHeading'
+// import SectionHeading from '../SectionHeading/SectionHeading'
 import FeatureCard from './FeatureCard'
-import Icon1 from "@/public/static/pen.png"
-import Icon2 from "@/public/static/book.png"
-import Icon3 from "@/public/static/gear.png"
-import Icon4 from "@/public/static/human.png"
+import Icon from "@/public/static/Laptop.png"
 
 const Features = () => {
     return (
-        <div className='py-[8rem] pb-28'>
-            <SectionHeading
-                headingMini = "Ideal solution for you"
-                headingPrimary = "Explore Ultimate features"
-            />
-            <div className='pt-[5rem] w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center gap-[1.4rem]'>
-                <div>
-                    <FeatureCard title="Register" image={Icon1.src}/>
+        <div className='py-5 pb-28'>
+            {/* <SectionHeading
+                // headingMini = "Ideal solution for you"
+                // headingPrimary = "Explore Ultimate features"
+            /> */}
+            <div className='w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center gap-[1.4rem]'>
+                <div className='col-span-full flex justify-between'>
+                    <div>
+                        <h1 className='text-3xl font-semibold pb-6'>Enrolled Courses</h1>
+                    </div>
+                    <div>
+                        <button className='text-lg hover:text-orange-500 font-semibold underline'>
+                            See all
+                        </button>
+                    </div>
                 </div>
                 <div>
-                    <FeatureCard title="Course" image={Icon2.src}/>
+                    <FeatureCard title="Laptop" image={Icon.src}/>
                 </div>
                 <div>
-                    <FeatureCard title="Department" image={Icon3.src}/>
+                    <FeatureCard title="Laptop" image={Icon.src}/>
                 </div>
                 <div>
-                    <FeatureCard title="Instructor" image={Icon4.src}/>
+                    <FeatureCard title="Laptop" image={Icon.src}/>
+                </div>
+                <div>
+                    <FeatureCard title="Laptop" image={Icon.src}/>
+                </div>
+                <div>
+                    <FeatureCard title="Laptop" image={Icon.src}/>
+                </div>
+                <div>
+                    <FeatureCard title="Laptop" image={Icon.src}/>
+                </div>
+                <div>
+                    <FeatureCard title="Laptop" image={Icon.src}/>
+                </div>
+                <div>
+                    <FeatureCard title="Laptop" image={Icon.src}/>
                 </div>
             </div>
         </div>

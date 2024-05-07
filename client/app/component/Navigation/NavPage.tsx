@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from "next/link"
-import ButtonOrange from '../Button/ButtonOrange';
 import { Bars3Icon } from '@heroicons/react/24/solid';
 
 interface Props {
@@ -33,8 +32,7 @@ const Nav = ({openNav}:Props) => {
                     </li>
                 </ul>
                 <div className='flex items-center space-x-2 md:space-x-5'>
-                    <ButtonOrange text='Sign up'/>
-                    <ButtonOrange text='Log in'/>
+                    <button className='hover:text-orange-500 font-semibold hidden lg:flex ml-auto'>Sikares</button>
                     <Bars3Icon
                         onClick={openNav}
                         className="lg:hidden w-[1.5rem] h-[1.5rem] text-slate-900 cursor-pointer"

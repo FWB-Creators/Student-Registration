@@ -84,7 +84,7 @@ return (
         </div>
         <button
             type="submit"
-            className="mt-8 w-full py-3 rounded-xl bg-orange-500 text-white text-lg font-bold"
+            className="mt-8 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-xl bg-orange-500 text-white text-lg font-bold"
         >
             Sign up
         </button>

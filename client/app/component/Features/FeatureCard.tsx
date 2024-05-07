@@ -8,19 +8,24 @@ interface Props {
 
 const FeatureCard = ({image, title}: Props) => {
     return (
-        <div className='text-center bg-gray-100 p-4 rounded-3xl hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-105'>
-            <Image
-                src={image}
-                alt="icon"
-                width={110}
-                height={110}
-                className='mx-auto'
-            />
-            <h1 className='text-2xl mt-[1.4rem] font-[500] text-black'>{title}</h1>
-            <p className='mt-[1rem] text-black opacity-90 text-[15px]'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste mollitia laborum quam nisi velit ipsa nemo accusamus, deleniti temporibus aspernatur sed voluptatum. Fugit debitis distinctio consectetur officia excepturi deleniti.
-            </p>
-            <p className='text-lg mt-[1.5rem] text-orange-600 font-[500] cursor-pointer hover:text-orange-700'>Learn More</p>
+        <div className='border-gray-500 bg-white p-6 rounded-3xl hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 flex items-center'>
+            <div>
+                <div className='ml-6'>
+                    <h1 className='text-2xl font-[500] text-black'>CPE 241</h1>
+                    <p className='mt-[1rem] text-black opacity-90 text-[15px]'>
+                        DATA BASESYSTEM
+                    </p>
+                </div>
+            </div>
+            <div className='ml-auto'>
+                <Image
+                    src="/static/Laptop.png"
+                    alt="icon"
+                    width={110}
+                    height={110}
+                    className='mx-auto'
+                />
+            </div>
         </div>
     )
 }
