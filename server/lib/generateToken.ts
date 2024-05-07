@@ -3,8 +3,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 interface User {
-  username: string
-  role: string
+  userid: number
 }
 const generateAccessToken = (user: User) => {
   // Assert that process.env.SECRET_TOKEN is not undefined

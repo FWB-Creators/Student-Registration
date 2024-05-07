@@ -5,7 +5,15 @@ import test from '../loading/page'
 
 const testController = async () => {
   try {
-    const res = await fetch('http://localhost:3001/controller')
+    const token = Cookies.get('token')
+    const res = await fetch('http://localhost:3001/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ token }),
+    })
+    // const data = await res.json()
     const data = await res.json()
     console.log(data)
   } catch (error) {
@@ -75,7 +83,7 @@ const Test = () => {
         <button type="submit">Submit</button>
       </form>
       {resMessage}
-      <div className="mt-20">Test controller</div>
+      <div className="mt-20">Test user</div>
       <button onClick={testController}>Test</button>
       <div className="mt-20">Test verify</div>
       <button onClick={testVerify}>Test</button>
