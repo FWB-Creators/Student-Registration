@@ -1,14 +1,14 @@
 import React from 'react'
-import Information from '../component/Infomation'
+import Edits from '../component/Edit-profile'
 
-function App() {
+function Edit() {
     return (
         <div className="flex w-full h-screen bg-gray-50">
             <div className="w-full flex items-center justify-center">
-                <Information />
+                <Edits />
             </div>
         </div>
     )
 }
 
-export default App
+export default Edit
