@@ -5,7 +5,7 @@ import Teacher from './Teacher/Teacher'
 
 const Instrctor = () => {
 return (
-    <div className='bg-gray-50 h-screen w-screen'>
+    <div className='bg-gray-50 h-screen w-full'>
         <div>
             <NavPages />
         </div>
