@@ -1,20 +1,18 @@
 import { FC } from 'react'
-import Sign from '../component/Sign-up'
+import SignUp from '../component/Sign-up'
 import Image from 'next/image'
 
 function App() {
-return (
-    <div className="flex w-full h-screen bg-gray-50">
-        <div className="hidden lg:flex h-full w-8/12 items-center justify-center bg-[#FFA842]">
-        <div className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.05] ease-in-out">
-            <Image src="/static/Fox1.png" alt="Fox" width={550} height={550} />
-        </div>
-        </div>
-        <div className="w-full flex items-center justify-center bg-gray-50">
-            <Sign />
-        </div>
+  return (
+    <div className="grid grid-cols-2 h-[calc(100vh-4rem)]">
+      <div className="flex flex-row justify-center items-center bg-orange-primary">
+        <Image src="/static/Fox1.png" alt="Fox" width={550} height={550} />
+      </div>
+      <div className="flex flex-row justify-center items-center">
+        <SignUp />
+      </div>
     </div>
-    )
+  )
 }
 
 export default App

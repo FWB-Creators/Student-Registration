@@ -50,7 +50,7 @@ const Navbar: FC = () => {
           ))}
         </div>
         <div className="flex flex-row gap-x-3">
-          <ButtonOrange text="Sign Up" href="/login"></ButtonOrange>
+          <ButtonOrange text="Sign Up" href="/sign-up"></ButtonOrange>
           <ButtonOrange text="Login" href="/login"></ButtonOrange>
         </div>
       </div>
