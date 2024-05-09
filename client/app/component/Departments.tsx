@@ -1,5 +1,5 @@
 import React from 'react'
-import NavPages from '../../Navigation/NavPage'
+import NavPages from '../Navigation/NavPage'
 import SearchBar from './Search/SearchBar'
 import Features from './Feature Department/Features'
 

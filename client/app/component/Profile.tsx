@@ -1,5 +1,5 @@
 import React from 'react'
-import NavPages from '../../Navigation/NavPage'
+import NavPages from '../Navigation/NavPage'
 import Features from './Features/Features'
 import Image from 'next/image'
 

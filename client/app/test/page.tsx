@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState, FormEvent } from 'react'
 import Cookies from 'js-cookie'
-import test from '../(nav_bar)/loading/page'
+import test from '../loading/page'
 
 const Test = () => {
   const [resMessage, setResMessage] = useState('')

@@ -1,7 +1,7 @@
 import React from 'react'
-import NavPages from '../../Navigation/NavPage'
+import NavPages from '../Navigation/NavPage'
 import SearchBar from './Search/SearchBar'
-import Teacher from './Teacher/Teacher'
+import Teacher from './Instructor/Teacher'
 
 const Instrctor = () => {
   return (
