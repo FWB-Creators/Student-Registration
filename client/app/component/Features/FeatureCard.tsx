@@ -8,14 +8,14 @@ interface Props {
 
 const FeatureCard = ({ image, title }: Props) => {
   return (
-    <div className="flex flex-col flex-grow bg-white w-64 p-8 rounded-xl drop-shadow">
-      <div className="grid grid-cols-3">
-        <div className="flex flex-col justify-center col-span-2">
+    <div className="relative flex flex-col flex-grow bg-white w-64 h-32 p-8 rounded-xl shadow">
+      <div className="grid grid-cols-3 gap-x-2 h-full">
+        <div className="flex flex-col justify-center col-span-2 ">
           <div className="font-semibold">CPE123</div>
-          <div>Database System</div>
+          <div className="font-light">Database System</div>
         </div>
-        <div className="flex flex-col justify-center items-end">
-          <Image src="/static/PC.svg" alt="Laptop" width={90} height={90} />
+        <div className="absolute right-4 top-[58%] transform translate-y-[-50%]">
+          <Image src="/static/PC.svg" alt="Laptop" width={85} height={85} />
         </div>
       </div>
     </div>

@@ -86,7 +86,7 @@ const Profile = () => {
       </section>
       <section className="w-10/12 mx-auto">
         <h1 className="text-3xl font-semibold my-10">Enrolled Courses</h1>
-        <div className="flex flex-row flex-wrap gap-5">
+        <div className="flex flex-row flex-wrap gap-8">
           {Array.from({ length: 8 }).map((_, index) => (
             <FeatureCard key={index} image="/static/PC.svg" title="CPE123" />
           ))}
