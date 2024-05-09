@@ -44,8 +44,9 @@ app.get('/', (req, res, next) => {
 app.post('/login', (req, res, next) => {
   //login middleware
   const { username, password, role } = req.body
+  console.log('Login:', username, password, role)
   connection.query(
-    `SELECT * FROM users WHERE username = '${username}' AND password = '${password}';`,
+    `SELECT * FROM users WHERE Username = '${username}' AND password = '${password}';`,
     (err, results) => {
       if (err) {
         console.log('An error occurred:', err)
@@ -55,7 +56,7 @@ app.post('/login', (req, res, next) => {
         const user = results[0] as RowDataPacket
         console.log('User test:', user)
         const userInfo = {
-          userid: user.userid,
+          User_ID: user.User_ID as number,
           // username: user.username,
           // role: user.role,
         }

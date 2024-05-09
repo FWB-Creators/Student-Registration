@@ -3,7 +3,7 @@ import dbConnection from '../database/database'
 const getUserInfo = async (userId: number) => {
   return new Promise((resolve, reject) => {
     dbConnection.query(
-      `SELECT * FROM users WHERE userid = ?`,
+      `SELECT * FROM users WHERE User_ID = ?`,
       [userId],
       (err, results) => {
         if (err) {
@@ -16,11 +16,16 @@ const getUserInfo = async (userId: number) => {
   })
 }
 
-const createUser = async (username: string, password: string, role: string) => {
+const createUser = async (
+  username: string,
+  password: string,
+  email: string,
+  role: string
+) => {
   return new Promise((resolve, reject) => {
     // First, check if the username already exists
     dbConnection.query(
-      `SELECT * FROM users WHERE username = ?`,
+      `SELECT * FROM users WHERE Username = ?`,
       [username],
       (err, results) => {
         if (err) {
@@ -33,8 +38,8 @@ const createUser = async (username: string, password: string, role: string) => {
         } else {
           // If no user is found, proceed with inserting the new user
           dbConnection.query(
-            `INSERT INTO users (username, password, role) VALUES (?, ?, ?);`,
-            [username, password, role],
+            `INSERT INTO users (Username, Password, Email, Role) VALUES (?, ?, ?, ?);`,
+            [username, password, email, role],
             (insertErr, insertResults) => {
               if (insertErr) {
                 console.error(
