@@ -13,11 +13,18 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        'orange-primary': '#ff8819',
+        'orange-secondary': '#ff7606',
+      },
     },
     fontFamily: {
       inter: 'var(--font-inter)',
       rubik: 'var(--font-rubik)',
     },
+    // colors: {
+    //   'orange-site': '#FFA842',
+    // },
   },
   plugins: [],
 }

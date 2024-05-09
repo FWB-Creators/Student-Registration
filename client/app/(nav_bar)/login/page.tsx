@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Login from '../component/Login'
 import Image from 'next/image'
 
-function App() {
+function Page() {
   return (
     <div className="flex w-full h-screen bg-gray-50">
       <div className="hidden lg:flex h-full w-8/12 items-center justify-center bg-[#FFA842]">
@@ -17,4 +17,4 @@ function App() {
   )
 }
 
-export default App
+export default Page
