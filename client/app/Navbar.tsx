@@ -39,9 +39,9 @@ const Navbar: FC = () => {
           {menu.map((item, index) => (
             <Link key={index} href={item.link}>
               <div
-                className={`${
-                  currentPage == item.name ? 'font-bold' : ''
-                } hover:bg-slate-100 transition-all ease-in-out rounded-full duration-300 px-4 py-2`}
+                className={` ${
+                  currentPage == item.name ? ' font-bold' : ''
+                }  hover:bg-slate-100 transition-all ease-in rounded-full duration-200 px-4 py-2`}
                 onClick={() => handleChangePage(item.name)}
               >
                 {item.name}

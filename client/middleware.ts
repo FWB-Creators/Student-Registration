@@ -26,8 +26,7 @@ export async function middleware(req: NextRequest) {
 
       if (
         verifyData.decoded &&
-        (req.nextUrl.pathname === '/login' ||
-          req.nextUrl.pathname === 'sign-up')
+        (req.nextUrl.pathname === 'login' || req.nextUrl.pathname === 'sign-up')
       ) {
         return NextResponse.redirect(new URL('/', req.url))
       }

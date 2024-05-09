@@ -5,10 +5,11 @@ dotenv.config()
 
 const authToken = (req: any, res: any, next: any) => {
   const { token } = req.body
+  const { value } = token
   console.log('Verify Auth Middle:', token)
 
   jwt.verify(
-    token as string,
+    (token as string) || value,
     process.env.SECRET_TOKEN as string,
     (err: any, decoded: any) => {
       if (err) {

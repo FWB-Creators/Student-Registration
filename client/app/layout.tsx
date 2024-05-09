@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head></head>
-      <body className={`${inter.variable} ${rubik.variable}`}>
+      <body className={`${inter.variable} ${rubik.variable} font-rubik`}>
         <Navbar />
         <div className="h-[calc(100vh - 4rem)]">{children}</div>
       </body>

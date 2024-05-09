@@ -1,12 +1,12 @@
 import React from 'react'
-import Instractor from '../component/Instractor'
+import Instructor from '../component/Instructor'
 
 function page() {
-    return (
-        <div>
-            <Instractor />
-        </div>
-    )
+  return (
+    <div>
+      <Instructor />
+    </div>
+  )
 }
 
 export default page

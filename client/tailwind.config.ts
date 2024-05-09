@@ -17,6 +17,15 @@ const config: Config = {
         'orange-primary': '#ff8819',
         'orange-secondary': '#ff7606',
       },
+      keyframes: {
+        slowfade: {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
+      },
+      animation: {
+        slowfade: 'slowfade 0.5s ease-in-out',
+      },
     },
     fontFamily: {
       inter: 'var(--font-inter)',
