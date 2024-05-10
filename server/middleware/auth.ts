@@ -9,7 +9,7 @@ const authToken = (req: any, res: any, next: any) => {
   console.log('Verify Auth Middle:', token)
 
   jwt.verify(
-    (token as string) || value,
+    value as string,
     process.env.SECRET_TOKEN as string,
     (err: any, decoded: any) => {
       if (err) {

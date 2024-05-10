@@ -30,6 +30,7 @@ export default function Login() {
         console.log(status)
         if (status.token) {
           console.log('Login successful')
+          console.log('Token:', status.token)
           setResMessage('Login successful')
 
           Cookies.set('token', status.token, { path: '/' })
