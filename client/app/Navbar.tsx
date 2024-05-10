@@ -1,5 +1,20 @@
 'use client'
 import { FC, useState, useEffect } from 'react'
+import {
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+  Transition,
+} from '@headlessui/react'
+
+import {
+  ArchiveBoxXMarkIcon,
+  ChevronDownIcon,
+  PencilIcon,
+  UserCircleIcon,
+  ArrowLeftStartOnRectangleIcon,
+} from '@heroicons/react/16/solid'
 import ButtonOrange from './component/Button/ButtonOrange'
 import Link from 'next/link'
 import Cookies from 'js-cookie'
@@ -97,7 +112,44 @@ const Navbar: FC = () => {
             <ButtonOrange text="Login" href="/login"></ButtonOrange>
           </div>
         ) : (
-          <div className="animate-slowfade">{userInfo?.Username}</div>
+          <div className="animate-slowfade ">
+            <Menu>
+              <MenuButton className="inline-flex items-center gap-2 rounded-md py-1.5 px-3  font-semibold  shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-100 data-[open]:bg-gray-100 data-[focus]:outline-1 data-[focus]:outline-white ">
+                {userInfo ? userInfo.Username : 'User'}
+                <ChevronDownIcon className="size-4" />
+              </MenuButton>
+              <Transition
+                enter="transition ease-out duration-75"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="transition ease-in duration-100"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <MenuItems
+                  anchor="bottom end"
+                  className="w-40 origin-top-right  rounded-xl border mt-2  bg-white px-3 py-2 text-sm  focus:outline-none"
+                >
+                  <MenuItem>
+                    <Link href="/profile">
+                      <button className="group flex items-center gap-2 w-full px-3 py-3 rounded-lg hover:bg-slate-100">
+                        <UserCircleIcon className="size-4" />
+                        <div>Profile</div>
+                      </button>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link href="/profile">
+                      <button className="group flex items-center gap-2 w-full px-3 py-2 rounded-lg hover:bg-slate-100">
+                        <ArrowLeftStartOnRectangleIcon className="size-4" />
+                        <div>Logout</div>
+                      </button>
+                    </Link>
+                  </MenuItem>
+                </MenuItems>
+              </Transition>
+            </Menu>
+          </div>
         )}
       </div>
     </nav>
