@@ -14,7 +14,7 @@ interface InstructorInfo {
 
 const Instructor: FC = () => {
   const [instructorInfo, setInstructorInfo] = useState<InstructorInfo[]>()
-
+  const [loading, setLoading] = useState(true)
   const getInstructorInfo = async () => {
     try {
       const res = await fetch('http://localhost:3001/instructor/info')
@@ -28,8 +28,16 @@ const Instructor: FC = () => {
   useEffect(() => {
     getInstructorInfo()
   }, [])
+
+  setTimeout(() => {
+    setLoading(false)
+  }, 300)
+  if (loading)
+    return (
+      <div className="flex flex-row justify-center items-center animate-pulse h-[calc(100vh-4rem)]"></div>
+    )
   return (
-    <div className="bg-gray-50 h-screen px-20">
+    <div className="bg-gray-50 h-screen px-20 animate-slowfade">
       <div className="flex justify-center">
         <h1 className="text-3xl font-semibold py-6">Instructor</h1>
       </div>
