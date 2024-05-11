@@ -61,16 +61,6 @@ export default function Information() {
                 </div>
                 <div className="flex justify-between">
                     <div className='flex-1 mx-5'>
-                        <label className='text-lg font-medium'>Username</label>
-                        <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='Enter your username' />
-                    </div>
-                    <div className='flex-1 mx-5'>
-                        <label className='text-lg font-medium'>Password</label>
-                        <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='Enter your password' type='password'/>
-                    </div>
-                </div>
-                <div className="flex justify-between">
-                    <div className='flex-1 mx-5'>
                         <label className='text-lg font-medium'>Address</label>
                         <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='Enter your address' />
                     </div>
