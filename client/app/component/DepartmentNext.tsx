@@ -6,9 +6,9 @@ import Image from 'next/image'
 const DepartmentNext = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
-      <div>
+      {/* <div>
         <NavPages />
-      </div>
+      </div> */}
       <div>
         <div className="text-sm text-gray-400 pt-6 pl-52">
           <Link href="/">

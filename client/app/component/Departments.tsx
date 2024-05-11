@@ -12,6 +12,7 @@ const Departments = () => {
         <SearchBar />
       </div>
       <div className="flex flex-row justify-center flex-wrap"></div>
+        <Features />
     </div>
   )
 }

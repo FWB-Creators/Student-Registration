@@ -100,7 +100,7 @@ const Profile: FC = () => {
             <div>
               <p className="text-white pb-10">May 15, 2024</p>
               <h1 className="text-white text-4xl font-semibold">
-                Welcome back, Gim!
+                Welcome back, Hilly!
               </h1>
               <p className="text-white pt-4">
                 Always stay updated in your student life.
