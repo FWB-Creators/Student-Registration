@@ -106,11 +106,7 @@ const Profile: FC = () => {
                 })}
               </p>
               <h1 className="text-white text-4xl font-semibold">
-<<<<<<< HEAD
-                Welcome back, Hilly!
-=======
                 Welcome back, {studentInfo?.Name}!
->>>>>>> 3eb2d35d50321635c0f8a686ea8a3aadd630619a
               </h1>
               <p className="text-white pt-4">
                 How are you doing today? We hope you are doing well.

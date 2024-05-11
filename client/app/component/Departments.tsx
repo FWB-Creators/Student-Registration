@@ -43,10 +43,6 @@ const Departments = () => {
       <div className="flex justify-center py-6">
         <SearchBar />
       </div>
-<<<<<<< HEAD
-      <div className="flex flex-row justify-center flex-wrap"></div>
-        <Features />
-=======
       <div className="flex flex-row justify-center flex-wrap">
         {departmentInfo?.map((data, index) => (
           <Card
@@ -58,7 +54,6 @@ const Departments = () => {
           />
         ))}
       </div>
->>>>>>> 3eb2d35d50321635c0f8a686ea8a3aadd630619a
     </div>
   )
 }
