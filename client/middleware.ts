@@ -3,10 +3,13 @@ import { NextRequest, NextResponse } from 'next/server'
 // This is a simplified example of how you might adjust the middleware
 
 export async function middleware(req: NextRequest) {
-  // console.log('FE middleware:')
+  console.log('FE middleware:')
   const token = req.cookies.get('token')
 
   if (!token) {
+    if (req.nextUrl.pathname === '/profile') {
+      return NextResponse.redirect(new URL('/login', req.url))
+    }
     console.log('No token found')
     return NextResponse.next()
   }
