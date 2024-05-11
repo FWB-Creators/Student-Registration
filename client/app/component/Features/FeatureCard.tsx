@@ -9,7 +9,7 @@ interface CardProps {
 
 const FeatureCard = ({ image, title, description }: CardProps) => {
   return (
-    <div className="relative flex flex-col flex-grow bg-white w-64 h-32 p-8 rounded-xl shadow">
+    <div className="relative flex flex-col bg-white w-72  p-8 rounded-xl shadow">
       <div className="grid grid-cols-3 gap-x-2 h-full">
         <div className="flex flex-col justify-center col-span-2 ">
           <div className="font-semibold">{title}</div>

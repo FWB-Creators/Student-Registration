@@ -98,12 +98,22 @@ const Profile: FC = () => {
         <div className="flex justify-center">
           <div className="bg-orange-primary w-10/12 px-16 py-10 rounded-3xl flex items-center justify-between">
             <div>
-              <p className="text-white pb-10">May 15, 2024</p>
+              <p className="text-white pb-10">
+                {new Date().toLocaleDateString('en-GB', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric',
+                })}
+              </p>
               <h1 className="text-white text-4xl font-semibold">
+<<<<<<< HEAD
                 Welcome back, Hilly!
+=======
+                Welcome back, {studentInfo?.Name}!
+>>>>>>> 3eb2d35d50321635c0f8a686ea8a3aadd630619a
               </h1>
               <p className="text-white pt-4">
-                Always stay updated in your student life.
+                How are you doing today? We hope you are doing well.
               </p>
             </div>
             <div className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.05] ease-in-out mr-20">
