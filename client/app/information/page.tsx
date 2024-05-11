@@ -1,5 +1,5 @@
 import React from 'react'
-import Information from '../component/Infomation'
+import Information from '../component/Information'
 
 function App() {
     return (

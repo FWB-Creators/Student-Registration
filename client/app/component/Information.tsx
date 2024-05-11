@@ -60,6 +60,18 @@ export default function Information() {
                     </div>
                 </div>
                 <div className="flex justify-between">
+                <div className='flex-1 mx-5'>
+                    <label className='text-lg font-medium'>Department</label>
+                        <select className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'>
+                            <option value=''>Select your department</option>
+                            <option value='engineering'>Faculty of Engineering</option>
+                            <option value='science'>Faculty of Science</option>
+                            <option value='industrial education'>Faculty of Industrial Education and Technology</option>
+                            <option value='information technology'>Faculty of Information Technology</option>
+                            <option value='robotics'>Faculty of Field Robotics (FIBO)</option>
+                            <option value='liberal arts'>Faculty of Liberal Arts</option>
+                        </select>
+                    </div>
                     <div className='flex-1 mx-5'>
                         <label className='text-lg font-medium'>Address</label>
                         <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' placeholder='Enter your address' />
