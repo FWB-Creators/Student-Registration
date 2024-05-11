@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Rubik } from 'next/font/google'
-import './globals.css'
-
+import Navbar from './Navbar'
+import './global.css'
 const inter = Inter({
   subsets: ['latin'],
   weight: ['200', '300', '400', '500', '600', '700'],
@@ -26,7 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${rubik.variable}`}>{children}</body>
+      <head></head>
+      <body className={`${inter.variable} ${rubik.variable} font-rubik`}>
+        <Navbar />
+        <div className="h-[calc(100vh - 4rem)]">{children}</div>
+      </body>
     </html>
   )
 }

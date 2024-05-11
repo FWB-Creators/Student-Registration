@@ -8,10 +8,11 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 interface User {
-  userid: number
-  username: string
-  password: string
-  role: string
+  User_ID: number
+  Username: string
+  Password: string
+  Email: string
+  Role: string
 }
 
 const router = Router()
@@ -28,7 +29,7 @@ router.post('/', async (req, res) => {
         // return { message: 'Invalid token' }
       }
       console.log('Decoded:', decoded)
-      return decoded.user.userid as number
+      return decoded.user.User_ID as number
       //   return { message: decoded }
     }
   )
@@ -40,6 +41,7 @@ router.post('/', async (req, res) => {
     const userInfo = users[0] as User
     return res.json({ userInfo })
   }
+  return res.json({ message: 'Invalid token' }).status(401)
 })
 
 export default router

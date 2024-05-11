@@ -1,33 +1,26 @@
 import React from 'react'
-import Image from 'next/image';
+import Image from 'next/image'
 
-interface Props {
-    image: string;
-    title: string;
+interface CardProps {
+  image: string
+  title: string
+  description: string
 }
 
-const FeatureCard = ({image, title}: Props) => {
-    return (
-        <div className='border-gray-500 bg-white p-6 rounded-3xl hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 flex items-center'>
-            <div>
-                <div className='ml-6'>
-                    <h1 className='text-2xl font-[500] text-black'>CPE 241</h1>
-                    <p className='mt-[1rem] text-black opacity-90 text-[15px]'>
-                        DATA BASESYSTEM
-                    </p>
-                </div>
-            </div>
-            <div className='ml-auto'>
-                <Image
-                    src="/static/Laptop.png"
-                    alt="icon"
-                    width={110}
-                    height={110}
-                    className='mx-auto'
-                />
-            </div>
+const FeatureCard = ({ image, title, description }: CardProps) => {
+  return (
+    <div className="relative flex flex-col flex-grow bg-white w-64 h-32 p-8 rounded-xl shadow">
+      <div className="grid grid-cols-3 gap-x-2 h-full">
+        <div className="flex flex-col justify-center col-span-2 ">
+          <div className="font-semibold">{title}</div>
+          <div className="font-light">{description}</div>
         </div>
-    )
+        <div className="absolute right-4 top-[58%] transform translate-y-[-50%]">
+          <Image src="/static/PC.svg" alt="Laptop" width={85} height={85} />
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default FeatureCard

@@ -1,25 +1,20 @@
 'use client'
-import Image from 'next/image'
-import { signIn, signOut } from 'next-auth/react'
-import Link from 'next/link'
-
-const Home = () => {
+import { useState, FC } from 'react'
+import HeroSection from './component/Main/HeroSection'
+const Home: FC = () => {
+  const [loading, setLoading] = useState(true)
+  setTimeout(() => {
+    setLoading(false)
+  }, 300)
+  if (loading)
+    return (
+      <div className="flex flex-row justify-center items-center animate-pulse h-[calc(100vh-4rem)]"></div>
+    )
   return (
-    <div>
-      <div className="flex flex-col h-screen justify-center items-center font-rubik ">
-        <Image
-          className="animate-bounce"
-          src="/static/sieng2.png"
-          alt="logo"
-          width={85}
-          height={85}
-        />
-        <div className="mt-2 text-2xl font-bold">Student Registration</div>
-        <Link href="/" className="mt-2">
-          Enter site &gt;
-        </Link>
-      </div>
+    <div className="animate-slowfade">
+      <HeroSection />
     </div>
   )
 }
+
 export default Home

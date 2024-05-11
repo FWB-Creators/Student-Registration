@@ -13,11 +13,27 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        'orange-primary': '#ff8819',
+        'orange-secondary': '#ff7606',
+      },
+      keyframes: {
+        slowfade: {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
+      },
+      animation: {
+        slowfade: 'slowfade 0.5s ease-in-out',
+      },
     },
     fontFamily: {
       inter: 'var(--font-inter)',
       rubik: 'var(--font-rubik)',
     },
+    // colors: {
+    //   'orange-site': '#FFA842',
+    // },
   },
   plugins: [],
 }

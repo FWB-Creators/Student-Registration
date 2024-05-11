@@ -17,6 +17,9 @@ const port = 3001
 
 import connection from './database/database'
 import userRoutes from './controllers/user.controllers'
+import studentRoutes from './controllers/student.controllers'
+import instructorRoutes from './controllers/instructor.controllers'
+import departmentRoutes from './controllers/department.controllers'
 // Use cors middleware, this will allow all CORS requests
 
 // const connection = mysql.createConnection({
@@ -36,6 +39,9 @@ app.use(
 // app.use('/controller', authToken, userRoutes)
 
 app.use('/user', userRoutes)
+app.use('/student', studentRoutes)
+app.use('/instructor', instructorRoutes)
+app.use('/department', departmentRoutes)
 
 app.get('/', (req, res, next) => {
   res.send('Hello World, test middleware')
@@ -44,8 +50,9 @@ app.get('/', (req, res, next) => {
 app.post('/login', (req, res, next) => {
   //login middleware
   const { username, password, role } = req.body
+  console.log('Login:', username, password, role)
   connection.query(
-    `SELECT * FROM users WHERE username = '${username}' AND password = '${password}';`,
+    `SELECT * FROM users WHERE Username = '${username}' AND password = '${password}';`,
     (err, results) => {
       if (err) {
         console.log('An error occurred:', err)
@@ -55,7 +62,7 @@ app.post('/login', (req, res, next) => {
         const user = results[0] as RowDataPacket
         console.log('User test:', user)
         const userInfo = {
-          userid: user.userid,
+          User_ID: user.User_ID as number,
           // username: user.username,
           // role: user.role,
         }
@@ -76,7 +83,9 @@ app.post('/login', (req, res, next) => {
 
 app.post('/verify', authToken, (req: any, res, next) => {
   console.log('Verify asfas:' + req.user)
-  return res.json({ message: 'Verify token' })
+  const { user } = req.user
+  const { User_ID } = user
+  return res.json({ userID: `${User_ID}`, message: 'Verify token' })
 })
 
 app.get('/api/home', (req, res, next) => {
