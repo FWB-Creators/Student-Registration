@@ -1,7 +1,8 @@
 import dbConnection from '../database/database'
-const getAllInstructorsInfo = async () => {
+
+const getAllDepartmentInfo = async () => {
   return new Promise((resolve, reject) => {
-    dbConnection.query(`SELECT * FROM teacherinfo`, (err, results) => {
+    dbConnection.query(`SELECT * FROM department`, (err, results) => {
       if (err) {
         console.error('An error occurred:', err)
         return reject(err)
@@ -11,4 +12,4 @@ const getAllInstructorsInfo = async () => {
   })
 }
 
-export { getAllInstructorsInfo }
+export { getAllDepartmentInfo }

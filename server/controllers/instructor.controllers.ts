@@ -1,8 +1,11 @@
 import { Router } from 'express'
+import { getAllInstructorsInfo } from '../services/instructor.services'
 const router = Router()
 
-router.get('/info', (req, res) => {
-  res.send('Instructor')
+//get all instructors info
+router.get('/info', async (req, res) => {
+  const instructors = await getAllInstructorsInfo()
+  res.json(instructors)
 })
 
 export default router
