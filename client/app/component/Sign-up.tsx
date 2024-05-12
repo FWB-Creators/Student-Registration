@@ -13,7 +13,7 @@ export default function SignUp() {
     const target = event.target as typeof event.target & {
       username: { value: string }
       password: { value: string }
-      email: { value: string }
+      // email: { value: string }
     }
     const username = target.username.value
     const password = target.password.value
@@ -35,11 +35,12 @@ export default function SignUp() {
           console.log('Signup successful')
           setResMessage('Signup successful')
           Cookies.set('token', status.token, { path: '/' })
-          
+          Cookies.set('userID', status.User_ID, { path: '/' })
+          Cookies.set('role', status.Role, { path: '/' })
           router.push('/')
         } else {
           console.log('Signup failed')
-          setResMessage('Signin failed')
+          setResMessage('Signup failed')
         }
       })
   }
@@ -50,7 +51,7 @@ export default function SignUp() {
       <p className=" text-lg text-gray-500 mt-1">Welcome!</p>
       {resMessage}
       <form onSubmit={handleSignUp} className="mt-6">
-        <div className="my-2">
+        {/* <div className="my-2">
           <label className="text-base font-medium">Email</label>
           <input
             className="w-full border-2 border-gray-100 rounded-xl px-4 py-3 my-2 bg-tranparent"
@@ -58,7 +59,7 @@ export default function SignUp() {
             placeholder="username@gmail.com"
             type="email"
           ></input>
-        </div>
+        </div> */}
         <div className="my-2">
           <label className="text-base font-medium">Username</label>
           <input

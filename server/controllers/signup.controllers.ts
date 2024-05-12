@@ -4,14 +4,15 @@ import { generateAccessToken } from '../lib/generateToken'
 const router = Router()
 
 router.post('/', async (req, res) => {
-  const { Username, Password } = req.body[0]
   console.log(req.body)
-  console.log('test', Username, Password)
+  const { username, password } = req.body
+
+  console.log('test', username, password)
   //   const create = await createStudentUser(username, password, 'student')
   try {
-    await createStudentUser(Username, Password, 'student')
+    await createStudentUser(username, password, 'student')
 
-    const student = (await getStudentInfo(Username)) as any
+    const student = (await getStudentInfo(username)) as any
     const user = student[0] as any
     const { User_ID, Role } = user
     const userTokenInfo = { User_ID, Role }
