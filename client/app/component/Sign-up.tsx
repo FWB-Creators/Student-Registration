@@ -4,22 +4,24 @@ import { use, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-export default function Sign() {
+export default function SignUp() {
   const [resMessage, setResMessage] = useState('')
   const router = useRouter()
-  const handleLogin = async (event: any) => {
+  const handleSignUp = async (event: any) => {
     event.preventDefault()
     console.log('hi')
     const target = event.target as typeof event.target & {
       username: { value: string }
       password: { value: string }
+      email: { value: string }
     }
     const username = target.username.value
     const password = target.password.value
-    console.log(username, password)
-    const data = { username, password }
+    const email = target.email.value
+    console.log(username, password, email)
+    const data = { username, password, email }
 
-    fetch('http://localhost:3001/login', {
+    fetch('http://localhost:3001/user/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,7 +34,6 @@ export default function Sign() {
         if (status.token) {
           console.log('Login successful')
           setResMessage('Login successful')
-
           Cookies.set('token', status.token, { path: '/' })
           router.push('/')
         } else {
@@ -47,7 +48,7 @@ export default function Sign() {
       <h1 className="text-3xl font-semibold">Student Sign Up</h1>
       <p className=" text-lg text-gray-500 mt-1">Welcome!</p>
       {resMessage}
-      <form onSubmit={handleLogin} className="mt-6">
+      <form onSubmit={handleSignUp} className="mt-6">
         <div className="my-2">
           <label className="text-base font-medium">Email</label>
           <input
