@@ -18,7 +18,7 @@ export default function Login() {
     console.log(username, password)
     const data = { username, password }
 
-    fetch('http://localhost:3001/login', {
+    fetch('http://localhost:3001/login/teacher', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,6 +34,8 @@ export default function Login() {
           setResMessage('Login successful')
 
           Cookies.set('token', status.token, { path: '/' })
+          Cookies.set('userID', status.userID, { path: '/' })
+          Cookies.set('role', 'teacher', { path: '/' })
           router.push('/')
         } else {
           console.log('Login failed')

@@ -114,9 +114,9 @@ const Navbar: FC = () => {
               <div className="animate-slowfade transition-all ease-linear duration-400">
                 <Menu>
                   <MenuButton
-                    className="flex justify-center items-center gap-1 rounded-full py-2 px-4  font-semibold  shadow-inner shadow-white/10 focus:outline-none  data-[focus]:outline-white rounded-full px-4 py-1 text-[15px] md:px-8 md:py-2 overflow-hidden group
-        bg-orange-primary relative hover:bg-gradient-to-r hover:from-orange-primary hover:to-orange-secondary text-white
-        hover:ring-2 hover:ring-offset-2 hover:ring-orange-secondary transition-all ease-out duration-300"
+                    className="flex justify-center items-center gap-1 py-2 px-4  font-semibold  shadow-inner shadow-white/10 focus:outline-none  data-[focus]:outline-white rounded-full px-4 py-1 text-[15px] md:px-8 md:py-2 overflow-hidden group
+                   bg-orange-primary relative hover:bg-gradient-to-r hover:from-orange-primary hover:to-orange-secondary text-white
+                    hover:ring-2 hover:ring-offset-2 hover:ring-orange-secondary transition-all ease-out duration-300"
                   >
                     Login
                     <ChevronDownIcon className="size-4" />

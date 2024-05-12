@@ -20,8 +20,8 @@ router.post('/student', async (req, res) => {
     const userTokenInfo = { User_ID, Role }
     const token = await generateAccessToken(userTokenInfo)
 
-    console.log('Token:', token)
-    return res.json({ token, User_ID }).status(200)
+    // console.log('Token:', token)
+    return res.json({ token, User_ID, Role }).status(200)
   }
   return res.json({ message: 'Invalid username or password' }).status(401)
 })
@@ -34,7 +34,7 @@ router.post('/teacher', async (req, res) => {
     const { Username, Password, User_ID, Role } = user
     const userTokenInfo = { User_ID, Role }
     const token = await generateAccessToken(userTokenInfo)
-    return res.json({ token, User_ID }).status(200)
+    return res.json({ token, User_ID, Role }).status(200)
   }
   return res.json({ message: 'Invalid username or password' }).status(401)
 })
@@ -47,7 +47,7 @@ router.post('/admin', async (req, res) => {
     const { Username, Password, User_ID, Role } = user
     const userTokenInfo = { User_ID, Role }
     const token = await generateAccessToken(userTokenInfo)
-    return res.json({ token, User_ID }).status(200)
+    return res.json({ token, User_ID, Role }).status(200)
   }
   return res.json({ message: 'Invalid username or password' }).status(401)
 })

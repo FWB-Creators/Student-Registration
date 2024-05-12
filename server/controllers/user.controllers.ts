@@ -33,7 +33,6 @@ router.post('/', async (req, res) => {
       //   return { message: decoded }
     }
   )
-
   console.log('User ID:', userId)
   if (typeof userId === 'number') {
     const users = (await getUserInfo(userId)) as User[]

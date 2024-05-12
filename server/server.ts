@@ -21,6 +21,7 @@ import studentRoutes from './controllers/student.controllers'
 import instructorRoutes from './controllers/instructor.controllers'
 import departmentRoutes from './controllers/department.controllers'
 import loginRoutes from './controllers/login.controllers'
+import signupRoutes from './controllers/signup.controllers'
 // Use cors middleware, this will allow all CORS requests
 
 // const connection = mysql.createConnection({
@@ -44,6 +45,7 @@ app.use('/student', studentRoutes)
 app.use('/instructor', instructorRoutes)
 app.use('/department', departmentRoutes)
 app.use('/login', loginRoutes)
+app.use('/signup', signupRoutes)
 
 app.get('/', (req, res, next) => {
   res.send('Hello World, test middleware')

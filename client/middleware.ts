@@ -59,7 +59,7 @@ export async function middleware(req: NextRequest) {
         //   },
         // })
 
-        const response = NextResponse.redirect(new URL('/login', req.url))
+        const response = NextResponse.redirect(new URL('/', req.url))
 
         response.headers.set(
           'Set-Cookie',

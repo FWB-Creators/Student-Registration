@@ -17,11 +17,11 @@ export default function SignUp() {
     }
     const username = target.username.value
     const password = target.password.value
-    const email = target.email.value
-    console.log(username, password, email)
-    const data = { username, password, email }
+    // const email = target.email.value
+    console.log(username, password)
+    const data = { username, password }
 
-    fetch('http://localhost:3001/user/signup', {
+    fetch('http://localhost:3001/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,13 +32,14 @@ export default function SignUp() {
       .then((status) => {
         console.log(status)
         if (status.token) {
-          console.log('Login successful')
-          setResMessage('Login successful')
+          console.log('Signup successful')
+          setResMessage('Signup successful')
           Cookies.set('token', status.token, { path: '/' })
+          
           router.push('/')
         } else {
-          console.log('Login failed')
-          setResMessage('Login failed')
+          console.log('Signup failed')
+          setResMessage('Signin failed')
         }
       })
   }

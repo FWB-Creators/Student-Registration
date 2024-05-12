@@ -37,6 +37,7 @@ export default function Login() {
 
           Cookies.set('token', status.token, { path: '/' })
           Cookies.set('userID', status.userID, { path: '/' })
+          Cookies.set('role', 'student', { path: '/' })
           router.push('/')
         } else {
           console.log('Login failed')
