@@ -37,8 +37,14 @@ const createUser = async (
           return reject(new Error('Username already exists'))
         } else {
           // If no user is found, proceed with inserting the new user
+
           dbConnection.query(
-            `INSERT INTO users (Username, Password, Email, Role) VALUES (?, ?, ?, ?);`,
+            `INSERT INTO users (Username, Password, Email, Role) VALUES (?, ?, ?, ?);
+              SELECT LAST_INSERT_ID() AS User_ID;
+
+              INSERT INTO teacherinfo (User_ID, other_column)
+              
+            `,
             [username, password, email, role],
             (insertErr, insertResults) => {
               if (insertErr) {

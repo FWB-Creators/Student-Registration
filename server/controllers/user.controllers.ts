@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import dbConnection from '../database/database'
-import { getUserInfo } from '../services/user.services'
+import { createUser, getUserInfo } from '../services/user.services'
 // import auth from '../middleware/auth'
 
 import jwt from 'jsonwebtoken'
@@ -42,6 +42,17 @@ router.post('/', async (req, res) => {
     return res.json({ userInfo })
   }
   return res.json({ message: 'Invalid token' }).status(401)
+})
+
+router.post('/signup', async (req, res) => {
+  const { username, password, email } = req.body
+  console.log('Signup:', username, password, email)
+  try {
+    await createUser(username, password, email, 'student')
+    return res.json({ message: 'User created' })
+  } catch (err) {
+    return res.json({ message: 'error' })
+  }
 })
 
 export default router
