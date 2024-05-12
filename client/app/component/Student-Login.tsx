@@ -3,6 +3,7 @@ import Cookies from 'js-cookie'
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { Cookie } from 'next/font/google'
 export default function Login() {
   const [resMessage, setResMessage] = useState('')
   const router = useRouter()
@@ -15,10 +16,11 @@ export default function Login() {
     }
     const username = target.username.value
     const password = target.password.value
+
     console.log(username, password)
     const data = { username, password }
 
-    fetch('http://localhost:3001/login', {
+    fetch('http://localhost:3001/login/student', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,6 +36,7 @@ export default function Login() {
           setResMessage('Login successful')
 
           Cookies.set('token', status.token, { path: '/' })
+          Cookies.set('userID', status.userID, { path: '/' })
           router.push('/')
         } else {
           console.log('Login failed')

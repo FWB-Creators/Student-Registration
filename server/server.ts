@@ -20,6 +20,7 @@ import userRoutes from './controllers/user.controllers'
 import studentRoutes from './controllers/student.controllers'
 import instructorRoutes from './controllers/instructor.controllers'
 import departmentRoutes from './controllers/department.controllers'
+import loginRoutes from './controllers/login.controllers'
 // Use cors middleware, this will allow all CORS requests
 
 // const connection = mysql.createConnection({
@@ -42,44 +43,45 @@ app.use('/user', userRoutes)
 app.use('/student', studentRoutes)
 app.use('/instructor', instructorRoutes)
 app.use('/department', departmentRoutes)
+app.use('/login', loginRoutes)
 
 app.get('/', (req, res, next) => {
   res.send('Hello World, test middleware')
 })
 
-app.post('/login', (req, res, next) => {
-  //login middleware
-  const { username, password, role } = req.body
-  console.log('Login:', username, password, role)
-  connection.query(
-    `SELECT * FROM users WHERE Username = '${username}' AND password = '${password}';`,
-    (err, results) => {
-      if (err) {
-        console.log('An error occurred:', err)
-        return res.json({ message: 'An error occurred' })
-      }
-      if (Array.isArray(results) && results[0]) {
-        const user = results[0] as RowDataPacket
-        console.log('User test:', user)
-        const userInfo = {
-          User_ID: user.User_ID as number,
-          // username: user.username,
-          // role: user.role,
-        }
-        const token = generateAccessToken(userInfo)
-        console.log('Query result:', results)
-        console.log('Token:', token)
-        return res.json({ token })
-      } else {
-        console.log('Query result:', results)
-        return res.json({ message: 'Invalid username or password' })
-        // return res.json({ message: 'Invalid username or password' })
-      }
+// app.post('/login', (req, res, next) => {
+//   //login middleware
+//   const { username, password, role } = req.body
+//   console.log('Login:', username, password, role)
+//   connection.query(
+//     `SELECT * FROM users WHERE Username = '${username}' AND password = '${password}';`,
+//     (err, results) => {
+//       if (err) {
+//         console.log('An error occurred:', err)
+//         return res.json({ message: 'An error occurred' })
+//       }
+//       if (Array.isArray(results) && results[0]) {
+//         const user = results[0] as RowDataPacket
+//         console.log('User test:', user)
+//         const userInfo = {
+//           User_ID: user.User_ID as number,
+//           // username: user.username,
+//           // role: user.role,
+//         }
+//         const token = generateAccessToken(userInfo)
+//         console.log('Query result:', results)
+//         console.log('Token:', token)
+//         return res.json({ token })
+//       } else {
+//         console.log('Query result:', results)
+//         return res.json({ message: 'Invalid username or password' })
+//         // return res.json({ message: 'Invalid username or password' })
+//       }
 
-      // return res.json({ users: results })
-    }
-  )
-})
+//       // return res.json({ users: results })
+//     }
+//   )
+// })
 
 app.post('/verify', authToken, (req: any, res, next) => {
   console.log('Verify asfas:' + req.user)
