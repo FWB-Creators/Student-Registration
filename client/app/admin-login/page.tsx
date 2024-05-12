@@ -1,6 +1,6 @@
 'use client'
 import { FC, useState } from 'react'
-import Login from '../component/Login'
+import Login from '../component/Admin-Login'
 import Image from 'next/image'
 
 function Page() {
