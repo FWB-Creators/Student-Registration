@@ -17,13 +17,14 @@ import ButtonOrange from './component/Button/ButtonOrange'
 import Link from 'next/link'
 import Cookies from 'js-cookie'
 import { userLogout } from '@/lib/userLogout'
-import { useRouter } from 'next/navigation'
+// import { useRouter } from 'next/navigation'
 
 const Navbar: FC = () => {
   const [login, setLogin] = useState(false)
   const [userInfo, setUserInfo] = useState<any[]>()
   const [currentPage, setCurrentPage] = useState('Home')
-  const router = useRouter()
+  // const router = useRouter()
+
   useEffect(() => {
     checkLogin() // Check login status on component mount
   }, [login])

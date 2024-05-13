@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Cookie } from 'next/font/google'
+
 export default function Login() {
   const [resMessage, setResMessage] = useState('')
   const router = useRouter()
