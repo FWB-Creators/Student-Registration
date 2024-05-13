@@ -37,7 +37,7 @@ export default function SignUp() {
           Cookies.set('token', status.token, { path: '/' })
           Cookies.set('userID', status.User_ID, { path: '/' })
           Cookies.set('role', status.Role, { path: '/' })
-          router.push('/')
+          router.push('/information')
         } else {
           console.log('Signup failed')
           setResMessage('Signup failed')

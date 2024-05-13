@@ -16,7 +16,7 @@ const app = express()
 const port = 3001
 
 import connection from './database/database'
-import userRoutes from './controllers/user.controllers'
+// import userRoutes from './controllers/user.controllers'
 import studentRoutes from './controllers/student.controllers'
 import instructorRoutes from './controllers/instructor.controllers'
 import departmentRoutes from './controllers/department.controllers'
@@ -40,7 +40,7 @@ app.use(
 
 // app.use('/controller', authToken, userRoutes)
 
-app.use('/user', userRoutes)
+// app.use('/user', userRoutes)
 app.use('/student', studentRoutes)
 app.use('/instructor', instructorRoutes)
 app.use('/department', departmentRoutes)

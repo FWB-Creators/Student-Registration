@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const authToken = (req: any, res: any, next: any) => {
+  console.log('Auth Middleware:', req.body)
   const { token } = req.body
   const { value } = token
   console.log('Verify Auth Middle:', token)

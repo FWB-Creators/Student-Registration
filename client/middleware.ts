@@ -7,8 +7,12 @@ export async function middleware(req: NextRequest) {
   const token = req.cookies.get('token')
 
   if (!token) {
-    if (req.nextUrl.pathname === '/profile') {
-      return NextResponse.redirect(new URL('/login', req.url))
+    if (
+      req.nextUrl.pathname === '/profile' ||
+      req.nextUrl.pathname === '/registration' ||
+      req.nextUrl.pathname === '/information'
+    ) {
+      return NextResponse.redirect(new URL('/student-login', req.url))
     }
     console.log('No token found')
     return NextResponse.next()
@@ -64,7 +68,9 @@ export async function middleware(req: NextRequest) {
         response.headers.set(
           'Set-Cookie',
           `token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly, 
-          userID=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly`
+          userID=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly
+          role=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly
+          `
         )
         return response
       }

@@ -23,7 +23,7 @@ const createStudentUser = async (
         // If the username does not exist, insert the new user
         dbConnection.query(
           `
-          INSERT INTO studentinfo (Name, Surname, Contract, Address, Email, Department_ID, Registration_ID, DOB, ID_card, Sex, Year)
+          INSERT INTO studentinfo (Name, Surname, Contact, Address, Email, Department_ID, Registration_ID, DOB, ID_card, Sex, Year)
           VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
           `,
           (insertErr, insertResults) => {

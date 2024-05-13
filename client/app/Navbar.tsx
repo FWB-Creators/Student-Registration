@@ -35,19 +35,39 @@ const Navbar: FC = () => {
   const checkLogin = () => {
     const userID = Cookies.get('userID')
     const token = Cookies.get('token')
+    const role = Cookies.get('role')
     console.log('--------token--------', token)
     console.log('----------------', userID)
+    console.log('----------------', role)
     if (token && userID) {
       const getProfile = async () => {
         try {
-          const token = Cookies.get('token')
-          const res = await fetch('http://localhost:3001/user', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ token }),
-          })
+          let res: any
+          if (role === 'student') {
+            res = await fetch('http://localhost:3001/student/info', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ token }),
+            })
+          } else if (role === 'teacher') {
+            res = await fetch('http://localhost:3001/teacher', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ token }),
+            })
+          } else if (role === 'admin') {
+            res = await fetch('http://localhost:3001/admin', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ token }),
+            })
+          }
           // const data = await res.json()
           const data = await res.json()
           setUserInfo(data.userInfo)
@@ -114,7 +134,7 @@ const Navbar: FC = () => {
               <div className="animate-slowfade transition-all ease-linear duration-400">
                 <Menu>
                   <MenuButton
-                    className="flex justify-center items-center gap-1 py-2 px-4  font-semibold  shadow-inner shadow-white/10 focus:outline-none  data-[focus]:outline-white rounded-full px-4 py-1 text-[15px] md:px-8 md:py-2 overflow-hidden group
+                    className="flex justify-center items-center gap-1  py-2 px-4  font-semibold  shadow-inner shadow-white/10 focus:outline-none  data-[focus]:outline-white rounded-full px-4 py-1 text-[15px] md:px-8 md:py-2 overflow-hidden group
                    bg-orange-primary relative hover:bg-gradient-to-r hover:from-orange-primary hover:to-orange-secondary text-white
                     hover:ring-2 hover:ring-offset-2 hover:ring-orange-secondary transition-all ease-out duration-300"
                   >
@@ -195,7 +215,7 @@ const Navbar: FC = () => {
                         onClick={() => {
                           setLogin(false)
                           userLogout()
-                          router.push('/login')
+                          router.push('/student-login')
                         }}
                       >
                         <ArrowLeftStartOnRectangleIcon className="size-4" />
