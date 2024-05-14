@@ -1,5 +1,12 @@
-'use client'
 import React, { useState, useEffect } from 'react'
+import {
+  Button,
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+  Transition,
+  TransitionChild,
+} from '@headlessui/react'
 import {
   PlusCircleIcon,
   ArrowLongLeftIcon,
@@ -8,33 +15,43 @@ import {
   TrashIcon,
 } from '@heroicons/react/16/solid'
 
-interface StudentInfo {
-  Address: string
-  Contact: string
-  DOB: string
-  Department_ID: string
-  Email: string
-  ID_card: string
-  Name: string
-  Registration_ID: number
-  Sex: string
-  Surname: string
-  User_ID: number
-  Year: string
-}
-
 function Admin_Student_Information() {
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [studentData, setStudentData] = useState<StudentInfo[]>([])
+  const [isOpen, setIsOpen] = useState(false)
+  const [selectedStudentId, setSelectedStudentId] = useState<number | null>(
+    null
+  )
+
   const itemsPerPage = 10
   const totalPages = Math.ceil(studentData.length / itemsPerPage)
 
   const fetchStudentData = async () => {
     try {
-      const res = await fetch('http://localhost:3001/admin/studentinfo')
+      const res = await fetch('http://localhost:3001/admin/student/info')
       const data = await res.json()
       setStudentData(data)
       console.log(data)
+    } catch (error) {
+      console.error('Error:', error)
+    }
+  }
+
+  const deleteStudent = async (userID: number) => {
+    try {
+      const res = await fetch('http://localhost:3001/admin/student/delete', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ User_ID: userID }),
+      })
+      const data = await res.json()
+      console.log(data)
+      setStudentData(
+        studentData.filter((student) => student.User_ID !== userID)
+      )
+      close()
     } catch (error) {
       console.error('Error:', error)
     }
@@ -61,6 +78,16 @@ function Admin_Student_Information() {
     currentPage * itemsPerPage
   )
 
+  const open = (userID: number) => {
+    setSelectedStudentId(userID)
+    setIsOpen(true)
+  }
+
+  const close = () => {
+    setIsOpen(false)
+    setSelectedStudentId(null)
+  }
+
   return (
     <div className="bg-gray-50 h-screen px-20 animate-slowfade">
       <section>
@@ -72,9 +99,6 @@ function Admin_Student_Information() {
             <table className="w-full divide-y divide-gray-200 overflow-hidden rounded-xl">
               <thead className="bg-gray-50">
                 <tr>
-                  {/* <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    No.
-                  </th> */}
                   <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     User ID
                   </th>
@@ -96,9 +120,6 @@ function Admin_Student_Information() {
               <tbody className="bg-white divide-y divide-gray-200">
                 {currentData.map((student, index) => (
                   <tr key={student.User_ID}>
-                    {/* <td className="px-6 py-4 whitespace-nowrap">
-                      {(currentPage - 1) * itemsPerPage + index + 1}
-                    </td> */}
                     <td className="px-6 py-4 whitespace-nowrap">
                       {student.User_ID ?? 'N/A'}
                     </td>
@@ -116,10 +137,17 @@ function Admin_Student_Information() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex justify-center items-center gap-x-2">
-                        <button className="bg-orange-primary px-3 py-1.5 rounded-full text-white">
+                        <button
+                          title="Edit"
+                          className="bg-orange-primary px-3 py-1.5 rounded-full text-white"
+                        >
                           <PencilIcon className="h-4 w-4" />
                         </button>
-                        <button className="bg-[#ff2727] px-3 py-1.5 rounded-full text-white">
+                        <button
+                          title="Delete"
+                          onClick={() => open(student.User_ID)}
+                          className="bg-[#ff2727] px-3 py-1.5 rounded-full text-white"
+                        >
                           <TrashIcon className="h-4 w-4" />
                         </button>
                       </div>
@@ -168,6 +196,56 @@ function Admin_Student_Information() {
           </div>
         </div>
       </section>
+
+      <Transition appear show={isOpen}>
+        <Dialog
+          as="div"
+          className="relative z-10 transition-all ease-linear duration-300"
+          onClose={close}
+        >
+          <div className="fixed inset-0 z-10 w-screen overflow-y-auto animate-slowfade">
+            <div className="flex min-h-full items-center justify-center p-4">
+              <TransitionChild
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 transform-[scale(95%)]"
+                enterTo="opacity-100 transform-[scale(100%)]"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 transform-[scale(100%)]"
+                leaveTo="opacity-0 transform-[scale(95%)]"
+              >
+                <DialogPanel className="w-full max-w-md rounded-xl bg-gray-100 px-10 py-8 backdrop-blur-2xl ">
+                  <DialogTitle as="h1" className="text-lg font-medium">
+                    Are you sure you want to delete this student?
+                  </DialogTitle>
+                  <p className="mt-2 text-sm/6">
+                    This action cannot be undone. This will permanently delete
+                    the student account.
+                  </p>
+                  <div className="mt-4 flex flex-row gap-x-2">
+                    <Button
+                      className="inline-flex items-center gap-2 rounded-md bg-[#ff2727] py-1.5 px-3 text-sm/6 font-semibold text-white"
+                      onClick={async () => {
+                        console.log('Delete')
+                        if (selectedStudentId !== null) {
+                          await deleteStudent(selectedStudentId)
+                        }
+                      }}
+                    >
+                      Delete
+                    </Button>
+                    <Button
+                      className="inline-flex items-center gap-2 rounded-md bg-[#000000] py-1.5 px-3 text-sm/6 text-white"
+                      onClick={close}
+                    >
+                      Cancel
+                    </Button>
+                  </div>
+                </DialogPanel>
+              </TransitionChild>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
     </div>
   )
 }
