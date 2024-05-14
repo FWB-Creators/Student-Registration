@@ -1,260 +1,192 @@
 import React from 'react'
-import Link from 'next/link';
-import { AcademicCapIcon, ArrowLongLeftIcon, ArrowLongRightIcon, BookOpenIcon, UserGroupIcon, UserIcon, PlusCircleIcon } from '@heroicons/react/16/solid'
+import {
+  PlusCircleIcon,
+  ArrowLongLeftIcon,
+  ArrowLongRightIcon,
+  PencilIcon,
+  TrashIcon,
+} from '@heroicons/react/16/solid'
+
+const mockData = [
+  {
+    id: 1,
+    userId: '65070503439',
+    name: 'Sikares',
+    surname: 'Nuntipatsakul',
+    email: 'hilly@gmail.com',
+    contactNumber: '096-516-7420',
+  },
+  {
+    id: 2,
+    userId: '65070503440',
+    name: 'John',
+    surname: 'Doe',
+    email: 'john@gmail.com',
+    contactNumber: '096-516-7421',
+  },
+  {
+    id: 3,
+    userId: '65070503441',
+    name: 'Jane',
+    surname: 'Smith',
+    email: 'jane@gmail.com',
+    contactNumber: '096-516-7422',
+  },
+  {
+    id: 4,
+    userId: '65070503442',
+    name: 'Chris',
+    surname: 'Johnson',
+    email: 'chris@gmail.com',
+    contactNumber: '096-516-7423',
+  },
+  {
+    id: 5,
+    userId: '65070503443',
+    name: 'Pat',
+    surname: 'Brown',
+    email: 'pat@gmail.com',
+    contactNumber: '096-516-7424',
+  },
+  {
+    id: 6,
+    userId: '65070503444',
+    name: 'Alex',
+    surname: 'Davis',
+    email: 'alex@gmail.com',
+    contactNumber: '096-516-7425',
+  },
+  {
+    id: 7,
+    userId: '65070503445',
+    name: 'Taylor',
+    surname: 'Wilson',
+    email: 'taylor@gmail.com',
+    contactNumber: '096-516-7426',
+  },
+  {
+    id: 8,
+    userId: '65070503446',
+    name: 'Jordan',
+    surname: 'Martinez',
+    email: 'jordan@gmail.com',
+    contactNumber: '096-516-7427',
+  },
+  {
+    id: 9,
+    userId: '65070503447',
+    name: 'Morgan',
+    surname: 'Anderson',
+    email: 'morgan@gmail.com',
+    contactNumber: '096-516-7428',
+  },
+  {
+    id: 10,
+    userId: '65070503448',
+    name: 'Casey',
+    surname: 'Taylor',
+    email: 'casey@gmail.com',
+    contactNumber: '096-516-7429',
+  },
+]
 
 function Admin_Student_Information() {
   return (
     <div className="bg-gray-50 h-screen px-20 animate-slowfade">
-      <div className='flex justify-center'>
-        <div className="w-10/12 flex justify-between items-center py-8">
-          <button className='my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center mx-12'>
-            <Link href="/admin/department-information">
-              <div className="flex items-center justify-center">
-                <UserGroupIcon className="h-6 w-6 mr-2" />
-                <p className="text-center">Student Information</p>
-              </div>
-            </Link>
-          </button>
-          <button className='my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center mx-12'>
-            <Link href="/admin/department-information">
-              <div className="flex items-center justify-center">
-                <UserIcon className="h-6 w-6 mr-2" />
-                <p className="text-center">Teacher Information</p>
-              </div>
-            </Link>
-          </button>
-          <button className='my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center mx-12'>
-            <Link href="/admin/department-information">
-              <div className="flex items-center justify-center">
-                <BookOpenIcon className="h-6 w-6 mr-2" />
-                <p className="text-center">Course Information</p>
-              </div>
-            </Link>
-          </button>
-          <button className='my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center mx-12'>
-            <Link href="/admin/department-information">
-              <div className="flex items-center justify-center">
-                <AcademicCapIcon className="h-6 w-6 mr-2" />
-                <p className="text-center">Department Information</p>
-              </div>
-            </Link>
-          </button>
-        </div>
-      </div>
       <section>
         <div className="w-full flex justify-center">
           <div className="bg-white w-10/12 px-16 py-10 rounded-3xl drop-shadow">
             <h1 className="mx-auto text-3xl font-semibold py-6 text-center">
               Student Information
             </h1>
-            <div className="grid grid-cols-7 gap-x-5">
-              <div>
-                <p className="text-base font-semibold py-3 text-gray-500">
-                  No.
-                </p>
-                <p className="text-base font-semibold py-3">1</p>
-                <p className="text-base font-semibold py-3">2</p>
-                <p className="text-base font-semibold py-3">3</p>
-                <p className="text-base font-semibold py-3">4</p>
-                <p className="text-base font-semibold py-3">5</p>
-                <p className="text-base font-semibold py-3">6</p>
-                <p className="text-base font-semibold py-3">7</p>
-                <p className="text-base font-semibold py-3">8</p>
-                <p className="text-base font-semibold py-3">9</p>
-                <p className="text-base font-semibold py-3">10</p>
-              </div>
-              <div>
-                <p className="text-base font-semibold py-3 text-gray-500">
-                  User ID
-                </p>
-                <p className="text-base font-semibold py-3">65070503439</p>
-                <p className="text-base font-semibold py-3">65070503439</p>
-                <p className="text-base font-semibold py-3">65070503439</p>
-                <p className="text-base font-semibold py-3">65070503439</p>
-                <p className="text-base font-semibold py-3">65070503439</p>
-                <p className="text-base font-semibold py-3">65070503439</p>
-                <p className="text-base font-semibold py-3">65070503439</p>
-                <p className="text-base font-semibold py-3">65070503439</p>
-                <p className="text-base font-semibold py-3">65070503439</p>
-                <p className="text-base font-semibold py-3">65070503439</p>
-              </div>
-              <div>
-                <p className="text-base font-semibold py-3 text-gray-500">
-                  Name
-                </p>
-                <p className="text-base font-semibold py-3">Sikares</p>
-                <p className="text-base font-semibold py-3">Sikares</p>
-                <p className="text-base font-semibold py-3">Sikares</p>
-                <p className="text-base font-semibold py-3">Sikares</p>
-                <p className="text-base font-semibold py-3">Sikares</p>
-                <p className="text-base font-semibold py-3">Sikares</p>
-                <p className="text-base font-semibold py-3">Sikares</p>
-                <p className="text-base font-semibold py-3">Sikares</p>
-                <p className="text-base font-semibold py-3">Sikares</p>
-                <p className="text-base font-semibold py-3">Sikares</p>
-              </div>
-              <div>
-                <p className="text-base font-semibold py-3 text-gray-500">
-                  Surname
-                </p>
-                <p className="text-base font-semibold py-3">Nuntipatsakul</p>
-                <p className="text-base font-semibold py-3">Nuntipatsakul</p>
-                <p className="text-base font-semibold py-3">Nuntipatsakul</p>
-                <p className="text-base font-semibold py-3">Nuntipatsakul</p>
-                <p className="text-base font-semibold py-3">Nuntipatsakul</p>
-                <p className="text-base font-semibold py-3">Nuntipatsakul</p>
-                <p className="text-base font-semibold py-3">Nuntipatsakul</p>
-                <p className="text-base font-semibold py-3">Nuntipatsakul</p>
-                <p className="text-base font-semibold py-3">Nuntipatsakul</p>
-                <p className="text-base font-semibold py-3">Nuntipatsakul</p>
-              </div>
-              <div>
-                <p className="text-base font-semibold py-3 text-gray-500">
-                  Email
-                </p>
-                <p className="text-base font-semibold py-3">hilly@gmail.com</p>
-                <p className="text-base font-semibold py-3">hilly@gmail.com</p>
-                <p className="text-base font-semibold py-3">hilly@gmail.com</p>
-                <p className="text-base font-semibold py-3">hilly@gmail.com</p>
-                <p className="text-base font-semibold py-3">hilly@gmail.com</p>
-                <p className="text-base font-semibold py-3">hilly@gmail.com</p>
-                <p className="text-base font-semibold py-3">hilly@gmail.com</p>
-                <p className="text-base font-semibold py-3">hilly@gmail.com</p>
-                <p className="text-base font-semibold py-3">hilly@gmail.com</p>
-                <p className="text-base font-semibold py-3">hilly@gmail.com</p>
-              </div>
-              <div>
-                <p className="text-base font-semibold py-3 text-gray-500">
-                  Contact Number
-                </p>
-                <div className="text-base font-semibold py-3">096-516-7420</div>
-                <div className="text-base font-semibold py-3">096-516-7420</div>
-                <div className="text-base font-semibold py-3">096-516-7420</div>
-                <div className="text-base font-semibold py-3">096-516-7420</div>
-                <div className="text-base font-semibold py-3">096-516-7420</div>
-                <div className="text-base font-semibold py-3">096-516-7420</div>
-                <div className="text-base font-semibold py-3">096-516-7420</div>
-                <div className="text-base font-semibold py-3">096-516-7420</div>
-                <div className="text-base font-semibold py-3">096-516-7420</div>
-                <div className="text-base font-semibold py-3">096-516-7420</div>
-              </div>
-              <div>
-                <p className="text-base text-center font-semibold py-3 text-gray-500">
-                  Edit
-                </p>
-                <div className="flex justify-center items-center">
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Edit</p>
-                  </button>
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-gray-200 text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Delete</p>
-                  </button>
-                </div>
-                <div className="flex justify-center items-center">
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Edit</p>
-                  </button>
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-gray-200 text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Delete</p>
-                  </button>
-                </div>
-                <div className="flex justify-center items-center">
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Edit</p>
-                  </button>
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-gray-200 text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Delete</p>
-                  </button>
-                </div>
-                <div className="flex justify-center items-center">
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Edit</p>
-                  </button>
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-gray-200 text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Delete</p>
-                  </button>
-                </div>
-                <div className="flex justify-center items-center">
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Edit</p>
-                  </button>
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-gray-200 text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Delete</p>
-                  </button>
-                </div>
-                <div className="flex justify-center items-center">
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Edit</p>
-                  </button>
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-gray-200 text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Delete</p>
-                  </button>
-                </div>
-                <div className="flex justify-center items-center">
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Edit</p>
-                  </button>
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-gray-200 text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Delete</p>
-                  </button>
-                </div>
-                <div className="flex justify-center items-center">
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Edit</p>
-                  </button>
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-gray-200 text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Delete</p>
-                  </button>
-                </div>
-                <div className="flex justify-center items-center">
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Edit</p>
-                  </button>
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-gray-200 text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Delete</p>
-                  </button>
-                </div>
-                <div className="flex justify-center items-center">
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Edit</p>
-                  </button>
-                  <button className="my-2 w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.03] ease-in-out py-1 rounded-full bg-gray-200 text-base font-semibold flex items-center justify-center mx-2">
-                    <p className="text-center">Delete</p>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className='flex justify-center items-center'>
-              <button
-                className="mt-4 w-1/12 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-full bg-orange-primary text-white text-base font-semibold flex items-center justify-center"
-              >
-                <p className='text-center'>ADD</p>
-                <PlusCircleIcon className="ml-3 h-6 w-6 text-center"/>
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    No.
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    User ID
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Name
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Surname
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Email
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Contact Number
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {mockData.map((student, index) => (
+                  <tr key={student.id}>
+                    <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {student.userId}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {student.name}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {student.surname}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {student.email}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {student.contactNumber}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="flex justify-center items-center gap-x-2">
+                        <button className="bg-orange-primary px-3 py-1.5 rounded-full text-white">
+                          <PencilIcon className="h-4 w-4" />
+                        </button>
+                        <button className="bg-[#ff2727] px-3 py-1.5 rounded-full text-white">
+                          <TrashIcon className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {/* <div className="flex justify-center items-center">
+              <button className="bg-orange-primary px-3 py-3 rounded-full text-white">
+                <PlusCircleIcon className="h-4 w-4" />
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
-      <section>
-      </section>
+      <section></section>
       <section>
         <div className="my-6 flex flex-wrap justify-center items-center w-full font-medium text-sm gap-2">
-          <div className='i-icon i-icon-arrow-left opacity-40 cursor-not-allowed h-6 w-6 text-gray-500'>
+          <div className="i-icon i-icon-arrow-left opacity-40 cursor-not-allowed h-6 w-6 text-gray-500">
             <button>
-              <ArrowLongLeftIcon
-                className="h-6 w-6 text-center"
-              />
+              <ArrowLongLeftIcon className="h-6 w-6 text-center" />
             </button>
           </div>
-          <p className='flex justify-center items-center h-10 w-10 border rounded-full text-white bg-orange-primary cursor-pointer transition-colors duration-200 hover:bg-orange-300 hover:text-slate-100'>1</p>
-          <p className='flex justify-center items-center h-10 w-10 border rounded-full text-gray-400 border-orange-primary cursor-pointer transition-colors duration-200 hover:bg-orange-300 hover:text-slate-100'>2</p>
-          <p className='flex justify-center items-center h-10 w-10 border rounded-full text-gray-400 border-orange-primary cursor-pointer transition-colors duration-200 hover:bg-orange-300 hover:text-slate-100'>3</p>
-          <p className='flex justify-center items-center h-10 w-10 border rounded-full text-gray-400 border-orange-primary cursor-pointer transition-colors duration-200 hover:bg-orange-300 hover:text-slate-100'>4</p>
-          <div className='i-icon i-icon-arrow-left opacity-40 cursor-not-allowed h-6 w-6 text-gray-500'>
+          <p className="flex justify-center items-center h-10 w-10 border rounded-full text-white bg-orange-primary cursor-pointer transition-colors duration-200 hover:bg-orange-300 hover:text-slate-100">
+            1
+          </p>
+          <p className="flex justify-center items-center h-10 w-10 border rounded-full text-gray-400 border-orange-primary cursor-pointer transition-colors duration-200 hover:bg-orange-300 hover:text-slate-100">
+            2
+          </p>
+          <p className="flex justify-center items-center h-10 w-10 border rounded-full text-gray-400 border-orange-primary cursor-pointer transition-colors duration-200 hover:bg-orange-300 hover:text-slate-100">
+            3
+          </p>
+          <p className="flex justify-center items-center h-10 w-10 border rounded-full text-gray-400 border-orange-primary cursor-pointer transition-colors duration-200 hover:bg-orange-300 hover:text-slate-100">
+            4
+          </p>
+          <div className="i-icon i-icon-arrow-left opacity-40 cursor-not-allowed h-6 w-6 text-gray-500">
             <button>
-              <ArrowLongRightIcon
-                className="h-6 w-6 text-center"
-              />
+              <ArrowLongRightIcon className="h-6 w-6 text-center" />
             </button>
           </div>
         </div>
