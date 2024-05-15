@@ -1,11 +1,11 @@
 import React from 'react'
-import Information from '../component/Information'
+import Student_Information from '../component/Student-Information'
 
 function App() {
   return (
     <div className="flex bg-gray-50">
       <div className=" flex w-screen items-center justify-center my-20">
-        <Information />
+        <Student_Information />
       </div>
     </div>
   )

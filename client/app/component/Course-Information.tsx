@@ -3,7 +3,7 @@ import { FC, useState, useEffect } from 'react'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 
-const Information: FC = () => {
+const Course_Information: FC = () => {
   const [loading, setLoading] = useState(true)
   const [oldStudentInfo, setOldStudentInfo] = useState<any[]>([])
   const [cookie, setCookie] = useState<number>()
@@ -94,18 +94,20 @@ const Information: FC = () => {
         className="bg-white px-20 py-20 rounded-3xl border-2 border-gray-100 drop-shadow-md animate-slowfade"
         onSubmit={handleSubmitInfo}
       >
-        <h1 className="text-3xl font-semibold">Student Information</h1>
-        <p className="font-medium text-xl text-gray-500 mt-4">Welcome!</p>
+        <h1 className="text-3xl font-semibold">Course Information</h1>
+        <p className="font-medium text-xl text-gray-500 mt-4">
+          Course ID: CPE241
+        </p>
         <div className="mt-8 flex flex-col gap-y-3  ">
           <div className="flex justify-start gap-x-4">
             <div className="flex flex-col">
-              <label htmlFor="firstname" className="text-base font-medium">
-                Firstname
+              <label htmlFor="" className="text-base font-medium">
+                Course Id
               </label>
               <input
-                id="firstname"
+                id=""
                 className="w-72 border-2 border-gray-100 rounded-xl px-4 py-3 mt-2 "
-                placeholder="Enter your firstname"
+                placeholder="Enter your course id"
                 value={oldStudentInfo?.Name}
                 onChange={(e) =>
                   setOldStudentInfo({ ...oldStudentInfo, Name: e.target.value })
@@ -113,13 +115,13 @@ const Information: FC = () => {
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="lastname" className="text-base font-medium">
-                Lastname
+              <label htmlFor="" className="text-base font-medium">
+                Course Name
               </label>
               <input
-                id="lastname"
+                id=""
                 className="w-72 border-2 border-gray-100 rounded-xl px-4 py-3 mt-2 "
-                placeholder="Enter your lastname"
+                placeholder="Enter your course name"
                 value={oldStudentInfo?.Surname}
                 onChange={(e) =>
                   setOldStudentInfo({
@@ -132,14 +134,13 @@ const Information: FC = () => {
           </div>
           <div className="flex justify-start gap-x-4">
             <div className="flex flex-col">
-              <label htmlFor="contactNumber" className="text-base font-medium">
-                Contact Number
+              <label htmlFor="" className="text-base font-medium">
+                Instructor
               </label>
               <input
-                id="contactNumber"
+                id=""
                 className="w-72 border-2 border-gray-100 rounded-xl px-4 py-3 mt-2"
-                placeholder="000-000-0000"
-                type="tel"
+                placeholder="Enter your instructor"
                 value={oldStudentInfo?.Contact}
                 onChange={(e) =>
                   setOldStudentInfo({
@@ -150,14 +151,13 @@ const Information: FC = () => {
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="email" className="text-base font-medium">
-                Email
+              <label htmlFor="" className="text-base font-medium">
+                Credit
               </label>
               <input
-                id="email"
+                id=""
                 className="w-72 border-2 border-gray-100 rounded-xl px-4 py-3 mt-2"
-                placeholder="username@gmail.com"
-                type="email"
+                placeholder="Enter your credit"
                 value={oldStudentInfo?.Email}
                 onChange={(e) =>
                   setOldStudentInfo({
@@ -170,58 +170,21 @@ const Information: FC = () => {
           </div>
           <div className="flex justify-start gap-x-4">
             <div className="flex flex-col">
-              <label htmlFor="idCard" className="text-base font-medium">
-                ID-Card
+              <label htmlFor="" className="text-base font-medium">
+                Hours
               </label>
               <input
-                id="idCard"
+                id=""
                 className="w-72 border-2 border-gray-100 rounded-xl px-4 py-3 mt-2"
-                placeholder="Enter your ID-Card"
-                value={oldStudentInfo?.ID_card}
+                placeholder="Enter your hours"
+                value={oldStudentInfo?.Email}
                 onChange={(e) =>
                   setOldStudentInfo({
                     ...oldStudentInfo,
-                    ID_card: e.target.value,
+                    Email: e.target.value,
                   })
                 }
               />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="dob" className="text-base font-medium">
-                Date Of Birth
-              </label>
-              <input
-                id="dob"
-                className="w-72 border-2 border-gray-100 rounded-xl px-4 py-3 mt-2"
-                type="date"
-                value={oldStudentInfo?.DOB}
-                onChange={(e) =>
-                  setOldStudentInfo({ ...oldStudentInfo, DOB: e.target.value })
-                }
-              />
-            </div>
-          </div>
-          <div className="flex justify-start gap-x-4">
-            <div className="flex flex-col">
-              <label htmlFor="gender" className="text-base font-medium">
-                Gender
-              </label>
-              <select
-                id="gender"
-                className="w-72 border-2 border-gray-100 rounded-xl px-4 py-3 mt-2"
-                value={oldStudentInfo?.Sex}
-                onChange={(e) =>
-                  setOldStudentInfo({
-                    ...oldStudentInfo,
-                    Sex: e.target.value,
-                  })
-                }
-              >
-                <option value="">Select your gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
             </div>
             <div className="flex flex-col">
               <label htmlFor="year" className="text-base font-medium">
@@ -247,48 +210,18 @@ const Information: FC = () => {
           </div>
           <div className="flex justify-start gap-x-4">
             <div className="flex flex-col">
-              <label htmlFor="department" className="text-base font-medium">
-                Department
-              </label>
-              <select
-                id="department"
-                className="w-72 border-2 border-gray-100 rounded-xl px-4 py-3 mt-2"
-                value={oldStudentInfo?.Department_ID}
-                onChange={(e) =>
-                  setOldStudentInfo({
-                    ...oldStudentInfo,
-                    Department_ID: e.target.value,
-                  })
-                }
-              >
-                <option value="">Select your department</option>
-                <option value="engineering">Faculty of Engineering</option>
-                <option value="science">Faculty of Science</option>
-                <option value="industrial education">
-                  Faculty of Industrial Education and Technology
-                </option>
-                <option value="information technology">
-                  Faculty of Information Technology
-                </option>
-                <option value="robotics">
-                  Faculty of Field Robotics (FIBO)
-                </option>
-                <option value="liberal arts">Faculty of Liberal Arts</option>
-              </select>
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="address" className="text-base font-medium">
-                Address
+              <label htmlFor="" className="text-base font-medium">
+                Image Link
               </label>
               <input
-                id="address"
+                id=""
                 className="w-72 border-2 border-gray-100 rounded-xl px-4 py-3 mt-2"
-                placeholder="Enter your address"
-                value={oldStudentInfo?.Address}
+                placeholder="Enter your image link"
+                value={oldStudentInfo?.Email}
                 onChange={(e) =>
                   setOldStudentInfo({
                     ...oldStudentInfo,
-                    Address: e.target.value,
+                    Email: e.target.value,
                   })
                 }
               />
@@ -306,4 +239,4 @@ const Information: FC = () => {
     </div>
   )
 }
-export default Information
+export default Course_Information
