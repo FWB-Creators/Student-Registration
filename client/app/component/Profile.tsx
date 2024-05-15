@@ -10,7 +10,7 @@ interface StudentInfo {
   Contract: string
   Address: string
   Email: string
-  Department_ID: number
+  Department_ID: string
   Registration_ID: number
   DOB: string
   ID_card: string
